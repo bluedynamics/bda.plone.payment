@@ -1,5 +1,4 @@
-collective.payment
-==================
+bda.plone.payment
+=================
 
 Write me
-
