@@ -7,7 +7,12 @@
   <include file="profiles.zcml" />
   <include package=".browser" />
   
-  <adapter factory=".Invoice" />
-  <adapter factory=".CreditCard" />
+  <adapter
+    name="invoice"
+    factory=".Invoice" />
+  
+  <adapter
+    name="credit_cart"
+    factory=".CreditCard" />
 
 </configure>

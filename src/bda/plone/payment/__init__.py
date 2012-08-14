@@ -29,7 +29,7 @@ class Payments(object):
     @property
     def vocab(self):
         adapters = getAdapters((self.context,), IPayment)
-        return [_[0] for _[1].label in adapters]
+        return [(_[0], _[1].label) for _ in adapters]
     
     @property
     def default(self):
