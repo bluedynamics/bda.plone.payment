@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="bda.plone.payment"
+    interface="bda.plone.payment.interfaces.IPaymentExtensionLayer" />
+</layers>

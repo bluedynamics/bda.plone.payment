@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <include package="Products.GenericSetup" file="meta.zcml" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="bda.plone.payment"
+      directory="profiles/default"
+      description="bda.plone.payment"
+      provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>
