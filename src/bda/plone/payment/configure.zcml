@@ -12,7 +12,7 @@
     factory=".Invoice" />
   
   <adapter
-    name="credit_cart"
+    name="credit_card"
     factory=".CreditCard" />
 
 </configure>
