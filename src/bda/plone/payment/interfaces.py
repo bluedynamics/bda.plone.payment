@@ -9,10 +9,29 @@ class IPaymentExtensionLayer(Interface):
     """
 
 
+class IPaymentEvent(Interface):
+    """Payment related event
+    """
+    context = Attribute(u"Context in which this event was triggered.")
+    
+    request = Attribute(u"Current request.")
+    
+    payment = Attribute(u"Payment instance.")
+    
+
+class IPaymentSuccessEvent(IPaymentEvent):
+    """This event gets triggered when payment was successful.
+    """
+    
+
+class IPaymentFailedEvent(IPaymentEvent):
+    """This event gets triggered when payment failed.
+    """
+
+
 class IPayment(Interface):
     """Single payment.
     """
-    
     label = Attribute(u"Payment label")
     
     available = Attribute(u"Flag whether payment is available in recent "
@@ -24,6 +43,12 @@ class IPayment(Interface):
                          u"deferred. Needed by 3rd party payment systems to "
                          u"defer mail notification.")
     
-    def next(checkout_adapter):
-        """Return redirect URL after checkout.
+    init_url = Attribute(u"Payment initialization URL.")
+    
+    def succeed(request):
+        """Notify ``IPaymentSuccessEvent``.
+        """
+    
+    def failed(request):
+        """Notify ``IPaymentFailedEvent``.
         """

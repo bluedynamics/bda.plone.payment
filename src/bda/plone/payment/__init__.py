@@ -7,10 +7,30 @@ from zope.component import (
     getAdapter,
     getAdapters,
 )
-from zope.i18nmessageid import MessageFactory
-from .interfaces import IPayment
+from zope.event import notify
+from .interfaces import (
+    IPayment,
+    IPaymentEvent,
+    IPaymentSuccessEvent,
+    IPaymentFailedEvent,
+)
 
-_ = MessageFactory('bda.plone.payment')
+
+@implementer(IPaymentEvent)
+class PaymentEvent(object):
+    
+    def __init__(self, context, request, payment):
+        self.context = context
+        self.request = request
+        self.payment = payment
+
+
+@implementer(IPaymentSuccessEvent)
+class PaymentSuccessEvent(PaymentEvent): pass
+
+
+@implementer(IPaymentFailedEvent)
+class PaymentFailedEvent(PaymentEvent): pass
 
 
 class Payments(object):
@@ -52,26 +72,13 @@ class Payment(object):
     def __init__(self, context):
         self.context = context
     
-    def next(self, checkout_adapter):
+    def succeed(self, request):
+        notify(PaymentSuccessEvent(self.context, request, self))
+    
+    def failed(self, request):
+        notify(PaymentFailedEvent(self.context, request, self))
+    
+    @property
+    def init_url(self):
         raise NotImplementedError(u"Abstract ``Payment`` does not implement "
                                   u"``next``")
-
-
-class Invoice(Payment):
-    label = _('invoice', 'Invoice')
-    available = True
-    default = False
-    deferred = False
-    
-    def next(self, checkout_adapter):
-        return '%s/@@invoice' % self.context.absolute_url()
-
-
-class SixPayment(Payment):
-    label = _('six_payment', 'Six Payment')
-    available = True
-    default = True
-    deferred = True
-    
-    def next(self, checkout_adapter):
-        return '%s/@@six_payment' % self.context.absolute_url()

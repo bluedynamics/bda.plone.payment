@@ -5,14 +5,8 @@
   <i18n:registerTranslations directory="locales" />
   
   <include file="profiles.zcml" />
-  <include package=".browser" />
   
-  <adapter
-    name="invoice"
-    factory=".Invoice" />
-  
-  <adapter
-    name="six_payment"
-    factory=".SixPayment" />
+  <include package=".invoice" />
+  <include package=".six_payment" />
 
 </configure>

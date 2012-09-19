@@ -2,9 +2,16 @@ import urllib
 import urllib2
 import urlparse
 import logging
+from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
+from bda.plone.payment import (
+    Payment,
+    Payments,
+)
+
 
 logger = logging.getLogger('bda.plone.payment')
+_ = MessageFactory('bda.plone.payment')
 
 
 ACCOUNTID = "99867-94913159"
@@ -12,6 +19,17 @@ PASSWORD = "XAjc3Kna"
 CREATE_PAY_INIT_URL = "https://www.saferpay.com/hosting/CreatePayInit.asp"
 VERIFY_PAY_CONFIRM_URL = "https://www.saferpay.com/hosting/VerifyPayConfirm.asp"
 PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
+
+
+class SixPayment(Payment):
+    label = _('six_payment', 'Six Payment')
+    available = True
+    default = True
+    deferred = True
+    
+    @property
+    def init_url(self):
+        return '%s/@@six_payment' % self.context.absolute_url()
 
 
 class SaferPayError(Exception):
@@ -88,6 +106,10 @@ class SaferPay(BrowserView):
                                backlink)
 
 
+def shopmaster_mail(context):
+    return 'foo@bar.baz' # XXX
+    
+
 class SaferPaySuccess(BrowserView):
     
     def verify(self):
@@ -95,19 +117,29 @@ class SaferPaySuccess(BrowserView):
             data = self.request.get('DATA', '')
             signature = self.request.get('SIGNATURE', '')
             res = verify_pay_confirm(data, signature)
+            
             # XXX: res['ID'] and res['token'] -> what to do with?
-            return True
+            
+            success = True # XXX: finish request
+            
+            payment = Payments(self.context).get('six_payment')
+            if success:
+                payment.succeed(self.request)
+                return True
+            else:
+                payment.failed(self.request)
+                return False
         except Exception, e:
             logger.error(u"Payment verification failed: %s" % str(e))
             return False
     
     @property
     def shopmaster_mail(self):
-        return 'foo@bar.baz' # XXX
+        return shopmaster_mail(self.context)
 
 
 class SaferPayFailed(BrowserView):
     
     @property
     def shopmaster_mail(self):
-        return 'foo@bar.baz' # XXX
+        return shopmaster_mail(self.context)

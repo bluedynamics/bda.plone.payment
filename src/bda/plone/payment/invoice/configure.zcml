@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <adapter name="invoice" factory=".Invoice" />
+  
+  <browser:page
+    for="*"
+    name="invoice"
+    template="invoice.pt"
+    class=".InvoiceFinished"
+    permission="zope2.View"
+  />
+
+</configure>

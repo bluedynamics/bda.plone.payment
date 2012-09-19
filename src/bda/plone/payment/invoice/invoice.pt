@@ -17,6 +17,8 @@
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
     
+    <tal:finalize define="finalized view/finalize" />
+    
     <h1 class="documentFirstHeading"
         i18n:translate="order_received">Order Received</h1>
     
