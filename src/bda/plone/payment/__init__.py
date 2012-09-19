@@ -19,7 +19,7 @@ class Payments(object):
         self.context = context
     
     def get(self, name):
-        return getAdapter((self.context,), IPayment, name=name)
+        return getAdapter(self.context, IPayment, name=name)
     
     @property
     def payments(self):
@@ -47,18 +47,31 @@ class Payment(object):
     label = None
     available = False
     default = False
+    deferred = False
     
     def __init__(self, context):
         self.context = context
+    
+    def next(self, checkout_adapter):
+        raise NotImplementedError(u"Abstract ``Payment`` does not implement "
+                                  u"``next``")
 
 
 class Invoice(Payment):
     label = _('invoice', 'Invoice')
     available = True
     default = False
+    deferred = False
+    
+    def next(self, checkout_adapter):
+        return '%s/@@invoice' % self.context.absolute_url()
 
 
-class CreditCard(Payment):
-    label = _('credit_card', 'Credit card')
+class SixPayment(Payment):
+    label = _('six_payment', 'Six Payment')
     available = True
     default = True
+    deferred = True
+    
+    def next(self, checkout_adapter):
+        return '%s/@@six_payment' % self.context.absolute_url()

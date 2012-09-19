@@ -12,7 +12,7 @@
     factory=".Invoice" />
   
   <adapter
-    name="credit_card"
-    factory=".CreditCard" />
+    name="six_payment"
+    factory=".SixPayment" />
 
 </configure>

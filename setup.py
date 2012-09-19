@@ -33,4 +33,3 @@ setup(name='bda.plone.payment',
       target = plone
       """,
 )
-

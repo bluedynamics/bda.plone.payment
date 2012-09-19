@@ -1,4 +1,19 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+  <browser:page
+    for="*"
+    name="invoice"
+    template="invoice.pt"
+    permission="zope2.View"
+  />
+  
+  <browser:page
+    for="*"
+    name="six_payment"
+    template="saferpay.pt"
+    class=".saferpay.SaferPay"
+    permission="zope2.View"
+  />
+
 </configure>
