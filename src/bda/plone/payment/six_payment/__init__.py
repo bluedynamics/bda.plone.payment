@@ -2,6 +2,7 @@ import urllib
 import urllib2
 import urlparse
 import logging
+from lxml import etree
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from ..interfaces import IPaymentData
@@ -98,8 +99,8 @@ def pay_complete(accountid, password, id):
     }
     res = perform_request(PAY_COMPLETE_URL, params)
     if res[:2] != 'OK':
-        raise SaferPayError(u"Pay Complete Failed")
-    print res
+        raise SaferPayError(u"Pay Complete Failed: '%s'" % res)
+    return True
 
 
 class SaferPay(BrowserView):
@@ -133,11 +134,16 @@ class SaferPaySuccess(BrowserView):
             data = self.request.get('DATA', '')
             signature = self.request.get('SIGNATURE', '')
             res = verify_pay_confirm(data, signature)
-            
-            # XXX: res['ID'] and res['token'] -> what to do with?
-            
-            success = True # XXX: finish request
-            
+            tid = res['ID'][0]
+            accountid = ACCOUNTID
+            password = PASSWORD
+            success = False
+            try:
+                success = pay_complete(accountid, password, tid)
+            except Exception, e:
+                logger.error(u"Payment completion failed: '%s'" % str(e))
+            data = etree.fromstring(data)
+            order_uid = data.get('ORDERID')
             payment = Payments(self.context).get('six_payment')
             if success:
                 payment.succeed(self.request, order_uid)
@@ -146,7 +152,7 @@ class SaferPaySuccess(BrowserView):
                 payment.failed(self.request, order_uid)
                 return False
         except Exception, e:
-            logger.error(u"Payment verification failed: %s" % str(e))
+            logger.error(u"Payment verification failed: '%s'" % str(e))
             return False
     
     @property
