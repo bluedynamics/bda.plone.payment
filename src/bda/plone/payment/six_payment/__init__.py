@@ -157,7 +157,6 @@ class SaferPaySuccess(BrowserView):
                 payment.failed(self.request, order_uid)
                 return False
         except Exception, e:
-            
             logger.error(u"Payment verification failed: '%s'" % str(e))
             return False
     
