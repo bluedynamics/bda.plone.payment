@@ -6,7 +6,6 @@
   <browser:page
     for="*"
     name="six_payment"
-    template="saferpay.pt"
     class=".SaferPay"
     permission="zope2.View"
   />
@@ -14,7 +13,7 @@
   <browser:page
     for="*"
     name="six_payment_success"
-    template="saferpay_success.pt"
+    template="success.pt"
     class=".SaferPaySuccess"
     permission="zope2.View"
   />
@@ -22,7 +21,7 @@
   <browser:page
     for="*"
     name="six_payment_failed"
-    template="saferpay_failed.pt"
+    template="failed.pt"
     class=".SaferPayFailed"
     permission="zope2.View"
   />

@@ -3,6 +3,7 @@ import urllib2
 import urlparse
 import logging
 from lxml import etree
+from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from ..interfaces import IPaymentData
@@ -99,28 +100,32 @@ def pay_complete(accountid, password, id):
     }
     res = perform_request(PAY_COMPLETE_URL, params)
     if res[:2] != 'OK':
-        raise SaferPayError(u"Pay Complete Failed: '%s'" % res)
+        raise SaferPayError(u"Pay Complete Failed: '%s'" % res[7:])
     return True
 
 
 class SaferPay(BrowserView):
     
-    @property
-    def payment_url(self):
-        data = ISixPaymentData(self.context).data(self.request['uid'])
-        accountid = ACCOUNTID
-        password = PASSWORD
-        amount = data['amount']
-        currency = data['currency']
-        description = data['description']
-        orderid = data['orderid']
+    def __call__(self):
         base_url = self.context.absolute_url()
-        successlink = '%s/@@six_payment_success' % base_url
-        faillink = '%s/@@six_payment_failed' % base_url
-        backlink = '%s/@@cart' % base_url
-        return create_pay_init(accountid, password, amount, currency,
-                               description, orderid, successlink, faillink,
-                               backlink)
+        try:
+            data = ISixPaymentData(self.context).data(self.request['uid'])
+            accountid = ACCOUNTID
+            password = PASSWORD
+            amount = data['amount']
+            currency = data['currency']
+            description = data['description']
+            orderid = data['orderid']
+            successlink = '%s/@@six_payment_success' % base_url
+            faillink = '%s/@@six_payment_failed' % base_url
+            backlink = '%s/@@cart' % base_url
+            redirect_url = create_pay_init(accountid, password, amount,
+                                           currency, description, orderid,
+                                           successlink, faillink, backlink)
+        except Exception, e:
+            logger.error(u"Could not initialize payment: '%s'" % str(e))
+            redirect_url = '%s/@@six_payment_failed' % base_url
+        raise Redirect(redirect_url)
 
 
 def shopmaster_mail(context):
@@ -152,6 +157,7 @@ class SaferPaySuccess(BrowserView):
                 payment.failed(self.request, order_uid)
                 return False
         except Exception, e:
+            
             logger.error(u"Payment verification failed: '%s'" % str(e))
             return False
     
