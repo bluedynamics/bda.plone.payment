@@ -1,6 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
 
+  <!-- invoice -->
   <browser:page
     for="*"
     name="invoice"
@@ -8,11 +9,28 @@
     permission="zope2.View"
   />
   
+  <!-- SIX payment -->
   <browser:page
     for="*"
     name="six_payment"
     template="saferpay.pt"
     class=".saferpay.SaferPay"
+    permission="zope2.View"
+  />
+  
+  <browser:page
+    for="*"
+    name="six_payment_success"
+    template="saferpay_success.pt"
+    class=".saferpay.SaferPaySuccess"
+    permission="zope2.View"
+  />
+  
+  <browser:page
+    for="*"
+    name="six_payment_failed"
+    template="saferpay_failed.pt"
+    class=".saferpay.SaferPayFailed"
     permission="zope2.View"
   />
 

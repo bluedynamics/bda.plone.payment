@@ -18,17 +18,19 @@
   <tal:main-macro metal:define-macro="main">
     
     <h1 class="documentFirstHeading"
-        i18n:translate="pay_now">Pay Now</h1>
+        i18n:translate="payment_failed">Payment Failed</h1>
     
-    <p i18n:translate="six_payment_text">
-      You have chosen to pay via Six Payment services. To finish ordering
-      process, follow the instruction at the payment provider page. As soon as
-      we receive the payment Confirmation, your offer gets delivered.
+    <p i18n:translate="six_payment_failed_text">
+      Sorry. Failed to complete your order. If you think the failure remains
+      on our side, please contact
+      <a href="mailto:shopmaster@example.com"
+         tal:attributes="href string:mailto:${view/shopmaster_mail}"
+         i18n:translate="us">us</a>
     </p>
     
     <a href=""
-       tal:attributes="href view/payment_url"
-       i18n:translate="pay_now">Pay Now</a>
+       tal:attributes="href context/absolute_url"
+       i18n:translate="payment_done">done</a>
 
   </tal:main-macro>
 </metal:main>
