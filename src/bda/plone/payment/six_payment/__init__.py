@@ -4,7 +4,8 @@ import urlparse
 import logging
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
-from bda.plone.payment import (
+from ..interfaces import IPaymentData
+from .. import (
     Payment,
     Payments,
 )
@@ -19,6 +20,22 @@ PASSWORD = "XAjc3Kna"
 CREATE_PAY_INIT_URL = "https://www.saferpay.com/hosting/CreatePayInit.asp"
 VERIFY_PAY_CONFIRM_URL = "https://www.saferpay.com/hosting/VerifyPayConfirm.asp"
 PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
+
+
+class ISixPaymentData(IPaymentData):
+    """Data adapter interface for SIX payment.
+    """
+    
+    def data(order_uid):
+        """Return dict in following format:
+        
+        {
+            'amount': '1000',
+            'currency': 'EUR',
+            'description': 'description',
+            'orderid': '12345',
+        }
+        """
 
 
 class SixPayment(Payment):
@@ -89,12 +106,13 @@ class SaferPay(BrowserView):
     
     @property
     def payment_url(self):
+        data = ISixPaymentData(self.context).data(self.request['uid'])
         accountid = ACCOUNTID
         password = PASSWORD
-        amount = '1000' # 10,00
-        currency = 'EUR' # XXX
-        description = 'testili'
-        orderid = '123'
+        amount = data['amount']
+        currency = data['currency']
+        description = data['description']
+        orderid = data['orderid']
         base_url = self.context.absolute_url()
         successlink = '%s/@@six_payment_success' % base_url
         faillink = '%s/@@six_payment_failed' % base_url
@@ -106,7 +124,7 @@ class SaferPay(BrowserView):
 
 def shopmaster_mail(context):
     return 'foo@bar.baz' # XXX
-    
+
 
 class SaferPaySuccess(BrowserView):
     

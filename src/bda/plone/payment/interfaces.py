@@ -52,3 +52,12 @@ class IPayment(Interface):
     def failed(request, order_uid):
         """Notify ``IPaymentFailedEvent``.
         """
+
+
+class IPaymentData(Interface):
+    """Interface for providing data required by payment.
+    """
+    
+    def data(order_uid):
+        """Return payment related data.
+        """
