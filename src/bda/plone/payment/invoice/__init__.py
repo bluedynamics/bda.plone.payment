@@ -13,15 +13,13 @@ class Invoice(Payment):
     label = _('invoice', 'Invoice')
     available = True
     default = False
-    deferred = False
     
-    @property
-    def init_url(self):
-        return '%s/@@invoice' % self.context.absolute_url()
+    def init_url(self, uid):
+        return '%s/@@invoice?uid=%s' % (self.context.absolute_url(), uid)
 
 
 class InvoiceFinished(BrowserView):
     
     def finalize(self):
         payment = Payments(self.context).get('invoice')
-        payment.succeed(self.request)
+        payment.succeed(self.request, self.request['uid'])

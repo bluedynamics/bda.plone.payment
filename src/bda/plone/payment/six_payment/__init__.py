@@ -25,11 +25,9 @@ class SixPayment(Payment):
     label = _('six_payment', 'Six Payment')
     available = True
     default = True
-    deferred = True
     
-    @property
-    def init_url(self):
-        return '%s/@@six_payment' % self.context.absolute_url()
+    def init_url(self, uid):
+        return '%s/@@six_payment?uid=%s' % (self.context.absolute_url(), uid)
 
 
 class SaferPayError(Exception):
@@ -124,10 +122,10 @@ class SaferPaySuccess(BrowserView):
             
             payment = Payments(self.context).get('six_payment')
             if success:
-                payment.succeed(self.request)
+                payment.succeed(self.request, order_uid)
                 return True
             else:
-                payment.failed(self.request)
+                payment.failed(self.request, order_uid)
                 return False
         except Exception, e:
             logger.error(u"Payment verification failed: %s" % str(e))

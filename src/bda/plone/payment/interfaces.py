@@ -18,6 +18,8 @@ class IPaymentEvent(Interface):
     
     payment = Attribute(u"Payment instance.")
     
+    order_uid = Attribute(u"Referring order uid.")
+
 
 class IPaymentSuccessEvent(IPaymentEvent):
     """This event gets triggered when payment was successful.
@@ -39,16 +41,14 @@ class IPayment(Interface):
     
     default = Attribute(u"Flag whether this payment is default payment.")
     
-    deferred = Attribute(u"Flag whether checkout notification shoud be "
-                         u"deferred. Needed by 3rd party payment systems to "
-                         u"defer mail notification.")
+    def init_url(uid):
+        """Return payment initialization URL.
+        """
     
-    init_url = Attribute(u"Payment initialization URL.")
-    
-    def succeed(request):
+    def succeed(request, order_uid):
         """Notify ``IPaymentSuccessEvent``.
         """
     
-    def failed(request):
+    def failed(request, order_uid):
         """Notify ``IPaymentFailedEvent``.
         """

@@ -19,10 +19,11 @@ from .interfaces import (
 @implementer(IPaymentEvent)
 class PaymentEvent(object):
     
-    def __init__(self, context, request, payment):
+    def __init__(self, context, request, payment, order_uid):
         self.context = context
         self.request = request
         self.payment = payment
+        self.order_uid = order_uid
 
 
 @implementer(IPaymentSuccessEvent)
@@ -72,13 +73,12 @@ class Payment(object):
     def __init__(self, context):
         self.context = context
     
-    def succeed(self, request):
-        notify(PaymentSuccessEvent(self.context, request, self))
+    def succeed(self, request, order_uid):
+        notify(PaymentSuccessEvent(self.context, request, self, order_uid))
     
-    def failed(self, request):
-        notify(PaymentFailedEvent(self.context, request, self))
+    def failed(self, request, order_uid):
+        notify(PaymentFailedEvent(self.context, request, self, order_uid))
     
-    @property
-    def init_url(self):
+    def init_url(self, uid):
         raise NotImplementedError(u"Abstract ``Payment`` does not implement "
-                                  u"``next``")
+                                  u"``init_url``")
