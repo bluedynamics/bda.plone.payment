@@ -35,9 +35,11 @@
         <h1 class="documentFirstHeading"
             i18n:translate="payment_error">Payment Error</h1>
         
-        <p i18n:translate="six_payment_verification_failed">
-          Something nasty is going on. Payment verification failed.
-          If you think the failure remains on our side, please contact
+        <p>
+          <span i18n:translate="six_payment_verification_failed">
+            Something nasty is going on. Payment verification failed.
+            If you think the failure remains on our side, please contact
+          </span>
           <a href="mailto:shopmaster@example.com"
              tal:attributes="href string:mailto:${view/shopmaster_mail}"
              i18n:translate="us">us</a>

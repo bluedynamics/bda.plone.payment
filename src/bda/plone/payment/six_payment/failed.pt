@@ -20,9 +20,11 @@
     <h1 class="documentFirstHeading"
         i18n:translate="payment_failed">Payment Failed</h1>
     
-    <p i18n:translate="six_payment_failed_text">
-      Sorry. Failed to complete your order. If you think the failure remains
-      on our side, please contact
+    <p>
+      <span i18n:translate="six_payment_failed_text">
+        Sorry. Failed to complete your order. If you think the failure remains
+        on our side, please contact
+      </span>
       <a href="mailto:shopmaster@example.com"
          tal:attributes="href string:mailto:${view/shopmaster_mail}"
          i18n:translate="us">us</a>
