@@ -36,7 +36,6 @@ class ISixPaymentData(IPaymentData):
             'amount': '1000',
             'currency': 'EUR',
             'description': 'description',
-            'orderid': '12345',
         }
         """
 
@@ -110,25 +109,26 @@ class SaferPay(BrowserView):
     
     def __call__(self):
         base_url = self.context.absolute_url()
+        orderid = self.request['uid']
         try:
-            data = ISixPaymentData(self.context).data(self.request['uid'])
+            data = ISixPaymentData(self.context).data(orderid)
             accountid = ACCOUNTID
             password = PASSWORD
             amount = data['amount']
             currency = data['currency']
             description = data['description']
-            orderid = data['orderid']
             successlink = '%s/@@six_payment_success' % base_url
             faillink = '%s/@@six_payment_failed?uid=%s' \
-                           % (base_url, data['orderid'])
+                % (base_url, orderid)
             backlink = '%s/@@six_payment_aborted?uid=%s' \
-                           % (base_url, data['orderid'])
+                % (base_url, orderid)
             redirect_url = create_pay_init(accountid, password, amount,
                                            currency, description, orderid,
                                            successlink, faillink, backlink)
         except Exception, e:
             logger.error(u"Could not initialize payment: '%s'" % str(e))
-            redirect_url = '%s/@@six_payment_failed' % base_url
+            redirect_url = '%s/@@six_payment_failed?uid=%s' \
+                % (base_url, orderid)
         raise Redirect(redirect_url)
 
 
