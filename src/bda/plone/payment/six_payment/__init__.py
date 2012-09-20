@@ -6,6 +6,7 @@ from lxml import etree
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
+from Products.CMFCore.utils import getToolByName
 from ..interfaces import IPaymentData
 from .. import (
     Payment,
@@ -41,6 +42,7 @@ class ISixPaymentData(IPaymentData):
 
 
 class SixPayment(Payment):
+    pid = 'six_payment'
     label = _('six_payment', 'Six Payment')
     available = True
     default = True
@@ -117,8 +119,10 @@ class SaferPay(BrowserView):
             description = data['description']
             orderid = data['orderid']
             successlink = '%s/@@six_payment_success' % base_url
-            faillink = '%s/@@six_payment_failed' % base_url
-            backlink = '%s/@@cart' % base_url
+            faillink = '%s/@@six_payment_failed?uid=%s' \
+                           % (base_url, data['orderid'])
+            backlink = '%s/@@six_payment_aborted?uid=%s' \
+                           % (base_url, data['orderid'])
             redirect_url = create_pay_init(accountid, password, amount,
                                            currency, description, orderid,
                                            successlink, faillink, backlink)
@@ -129,7 +133,8 @@ class SaferPay(BrowserView):
 
 
 def shopmaster_mail(context):
-    return 'foo@bar.baz' # XXX
+    props = getToolByName(context, 'portal_properties')
+    return props.site_properties.email_from_address
 
 
 class SaferPaySuccess(BrowserView):
@@ -150,11 +155,12 @@ class SaferPaySuccess(BrowserView):
             data = etree.fromstring(data)
             order_uid = data.get('ORDERID')
             payment = Payments(self.context).get('six_payment')
+            evt_data = {'tid': tid}
             if success:
-                payment.succeed(self.request, order_uid)
+                payment.succeed(self.request, order_uid, evt_data)
                 return True
             else:
-                payment.failed(self.request, order_uid)
+                payment.failed(self.request, order_uid, evt_data)
                 return False
         except Exception, e:
             logger.error(u"Payment verification failed: '%s'" % str(e))
@@ -166,6 +172,10 @@ class SaferPaySuccess(BrowserView):
 
 
 class SaferPayFailed(BrowserView):
+    
+    def finalize(self):
+        payment = Payments(self.context).get('six_payment')
+        payment.failed(self.request, self.request['uid'], {'tid': 'none'})
     
     @property
     def shopmaster_mail(self):

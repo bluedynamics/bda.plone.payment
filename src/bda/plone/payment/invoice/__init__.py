@@ -10,6 +10,7 @@ _ = MessageFactory('bda.plone.payment')
 
 
 class Invoice(Payment):
+    pid = 'invoice'
     label = _('invoice', 'Invoice')
     available = True
     default = False

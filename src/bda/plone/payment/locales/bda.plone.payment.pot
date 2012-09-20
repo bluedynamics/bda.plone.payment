@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-20 08:26+0000\n"
+"POT-Creation-Date: 2012-09-20 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Domain: DOMAIN\n"
 
 #. Default: "Invoice"
-#: ./invoice/__init__.py:13
+#: ./invoice/__init__.py:14
 msgid "invoice"
 msgstr ""
 
@@ -29,10 +29,15 @@ msgstr ""
 msgid "order_received"
 msgstr ""
 
+#. Default: "Payment Aborted"
+#: ./six_payment/aborted.pt:22
+msgid "payment_aborted"
+msgstr ""
+
 #. Default: "done"
 #: ./invoice/invoice.pt:31
-#: ./six_payment/failed.pt:33
-#: ./six_payment/success.pt:52
+#: ./six_payment/aborted.pt:29
+#: ./six_payment/failed.pt:35
 msgid "payment_done"
 msgstr ""
 
@@ -42,7 +47,7 @@ msgid "payment_error"
 msgstr ""
 
 #. Default: "Payment Failed"
-#: ./six_payment/failed.pt:20
+#: ./six_payment/failed.pt:22
 msgid "payment_failed"
 msgstr ""
 
@@ -52,12 +57,17 @@ msgid "payment_success"
 msgstr ""
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:44
+#: ./six_payment/__init__.py:46
 msgid "six_payment"
 msgstr ""
 
+#. Default: "Payment has been aborted."
+#: ./six_payment/aborted.pt:25
+msgid "six_payment_aborted_text"
+msgstr ""
+
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
-#: ./six_payment/failed.pt:24
+#: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
 msgstr ""
 
@@ -71,7 +81,7 @@ msgstr ""
 msgid "six_payment_verification_failed"
 msgstr ""
 
-#: ./six_payment/failed.pt:28
+#: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
 msgid "us"
 msgstr ""

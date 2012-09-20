@@ -19,6 +19,8 @@ class IPaymentEvent(Interface):
     payment = Attribute(u"Payment instance.")
     
     order_uid = Attribute(u"Referring order uid.")
+    
+    data = Attribute(u"Optional data as dict")
 
 
 class IPaymentSuccessEvent(IPaymentEvent):
@@ -34,6 +36,9 @@ class IPaymentFailedEvent(IPaymentEvent):
 class IPayment(Interface):
     """Single payment.
     """
+    pid = Attribute(u"Unique payment id. Payment adapter is also registered "
+                    u"under this name.")
+    
     label = Attribute(u"Payment label")
     
     available = Attribute(u"Flag whether payment is available in recent "
@@ -45,11 +50,11 @@ class IPayment(Interface):
         """Return payment initialization URL.
         """
     
-    def succeed(request, order_uid):
+    def succeed(request, order_uid, data=dict()):
         """Notify ``IPaymentSuccessEvent``.
         """
     
-    def failed(request, order_uid):
+    def failed(request, order_uid, data=dict()):
         """Notify ``IPaymentFailedEvent``.
         """
 

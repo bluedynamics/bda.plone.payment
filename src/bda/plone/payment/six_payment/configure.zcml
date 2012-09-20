@@ -25,5 +25,13 @@
     class=".SaferPayFailed"
     permission="zope2.View"
   />
+  
+  <browser:page
+    for="*"
+    name="six_payment_aborted"
+    template="aborted.pt"
+    class=".SaferPayFailed"
+    permission="zope2.View"
+  />
 
 </configure>
