@@ -51,7 +51,7 @@ class Payments(object):
     @property
     def vocab(self):
         adapters = getAdapters((self.context,), IPayment)
-        return [(_[0], _[1].label) for _ in adapters]
+        return [(_[0], _[1].label) for _ in adapters if _[1].available]
     
     @property
     def default(self):
