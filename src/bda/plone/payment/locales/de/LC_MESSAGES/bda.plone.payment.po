@@ -39,7 +39,7 @@ msgstr "Zahlung abgebrochen"
 #: ./six_payment/aborted.pt:29
 #: ./six_payment/failed.pt:35
 msgid "payment_done"
-msgstr "fertig"
+msgstr "weiter"
 
 #. Default: "Payment Error"
 #: ./six_payment/success.pt:35
