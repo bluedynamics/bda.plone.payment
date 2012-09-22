@@ -29,6 +29,10 @@ class ISixPaymentData(IPaymentData):
     """Data adapter interface for SIX payment.
     """
     
+    def uid_for(orderid):
+        """Return order_uid for orderid.
+        """
+    
     def data(order_uid):
         """Return dict in following format:
         
@@ -36,6 +40,7 @@ class ISixPaymentData(IPaymentData):
             'amount': '1000',
             'currency': 'EUR',
             'description': 'description',
+            'orderid': '1234567890',
         }
         """
 
@@ -109,26 +114,27 @@ class SaferPay(BrowserView):
     
     def __call__(self):
         base_url = self.context.absolute_url()
-        orderid = self.request['uid']
+        order_uid = self.request['uid']
         try:
-            data = ISixPaymentData(self.context).data(orderid)
+            data = ISixPaymentData(self.context).data(order_uid)
             accountid = ACCOUNTID
             password = PASSWORD
             amount = data['amount']
             currency = data['currency']
             description = data['description']
+            orderid = data['orderid']
             successlink = '%s/@@six_payment_success' % base_url
             faillink = '%s/@@six_payment_failed?uid=%s' \
-                % (base_url, orderid)
+                % (base_url, order_uid)
             backlink = '%s/@@six_payment_aborted?uid=%s' \
-                % (base_url, orderid)
+                % (base_url, order_uid)
             redirect_url = create_pay_init(accountid, password, amount,
                                            currency, description, orderid,
                                            successlink, faillink, backlink)
         except Exception, e:
             logger.error(u"Could not initialize payment: '%s'" % str(e))
             redirect_url = '%s/@@six_payment_failed?uid=%s' \
-                % (base_url, orderid)
+                % (base_url, order_uid)
         raise Redirect(redirect_url)
 
 
@@ -153,7 +159,8 @@ class SaferPaySuccess(BrowserView):
             except Exception, e:
                 logger.error(u"Payment completion failed: '%s'" % str(e))
             data = etree.fromstring(data)
-            order_uid = data.get('ORDERID')
+            orderid = data.get('ORDERID')
+            order_uid = ISixPaymentData(self.context).uid_for(orderid)
             payment = Payments(self.context).get('six_payment')
             evt_data = {'tid': tid}
             if success:
