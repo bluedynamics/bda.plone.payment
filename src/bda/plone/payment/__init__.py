@@ -56,7 +56,7 @@ class Payments(object):
     @property
     def default(self):
         adapters = getAdapters((self.context,), IPayment)
-        for name, payment in getAdapters((self.context,), IPayment):
+        for name, payment in adapters:
             if payment.default:
                 return name
         if adapters:
