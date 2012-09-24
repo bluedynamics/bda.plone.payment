@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-14 14:30+0000\n"
+"POT-Creation-Date: 2012-09-24 15:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,17 +9,81 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-
-#. Default: "Credit card"
-#: ./__init__.py:62
-msgid "credit_card"
-msgstr "Kreditkarte"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
 #. Default: "Invoice"
-#: ./__init__.py:56
+#: ./invoice/__init__.py:14
 msgid "invoice"
-msgstr "Rechnung"
+msgstr ""
+
+#. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
+#: ./invoice/invoice.pt:25
+msgid "invoice_text"
+msgstr ""
+
+#. Default: "Order Received"
+#: ./invoice/invoice.pt:22
+msgid "order_received"
+msgstr ""
+
+#. Default: "Payment Aborted"
+#: ./six_payment/aborted.pt:22
+msgid "payment_aborted"
+msgstr ""
+
+#. Default: "continue"
+#: ./invoice/invoice.pt:31
+#: ./six_payment/aborted.pt:29
+#: ./six_payment/failed.pt:35
+msgid "payment_done"
+msgstr ""
+
+#. Default: "Payment Error"
+#: ./six_payment/success.pt:35
+msgid "payment_error"
+msgstr ""
+
+#. Default: "Payment Failed"
+#: ./six_payment/failed.pt:22
+msgid "payment_failed"
+msgstr ""
+
+#. Default: "Payment Success"
+#: ./six_payment/success.pt:24
+msgid "payment_success"
+msgstr ""
+
+#. Default: "Six Payment"
+#: ./six_payment/__init__.py:50
+msgid "six_payment"
+msgstr ""
+
+#. Default: "Payment has been aborted."
+#: ./six_payment/aborted.pt:25
+msgid "six_payment_aborted_text"
+msgstr ""
+
+#. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
+#: ./six_payment/failed.pt:26
+msgid "six_payment_failed_text"
+msgstr ""
+
+#. Default: "Your Order has been completed successful."
+#: ./six_payment/success.pt:27
+msgid "six_payment_success_text"
+msgstr ""
+
+#. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
+#: ./six_payment/success.pt:39
+msgid "six_payment_verification_failed"
+msgstr ""
+
+#: ./six_payment/failed.pt:30
+#: ./six_payment/success.pt:43
+msgid "us"
+msgstr ""
+
