@@ -87,3 +87,6 @@ msgstr "Fehler bei der verifizierung der Zahlung. Sollten Sie diese Medlung irrt
 msgid "us"
 msgstr "uns"
 
+msgid "quantity_piece"
+msgstr "teststück"
+
