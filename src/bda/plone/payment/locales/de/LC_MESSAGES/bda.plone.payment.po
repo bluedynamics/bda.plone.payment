@@ -21,9 +21,9 @@ msgid "invoice"
 msgstr "Rechnung"
 
 #: ./invoice/invoice.pt:25
-#. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
+#. Default: "Thanks for your Order."
 msgid "invoice_text"
-msgstr "Vielen Dank für Ihre Bestellung. Die Rechnung wird Ihnen per E-Mail zugesandt. Sobald wir Ihren Zahlungseingang auf unserem Konto haben, wird Ihnen die Ware zugesandt."
+msgstr "Vielen Dank für Ihre Bestellung."
 
 #: ./invoice/invoice.pt:22
 #. Default: "Order Received"

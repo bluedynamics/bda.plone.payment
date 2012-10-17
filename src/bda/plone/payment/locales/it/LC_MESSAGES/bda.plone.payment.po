@@ -20,7 +20,7 @@ msgstr ""
 msgid "invoice"
 msgstr ""
 
-#. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
+#. Default: "Thanks for your Order."
 #: ./invoice/invoice.pt:25
 msgid "invoice_text"
 msgstr ""
