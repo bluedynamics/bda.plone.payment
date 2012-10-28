@@ -20,67 +20,67 @@ msgstr ""
 msgid "invoice"
 msgstr ""
 
-#. Default: "Thanks for your Order."
+#. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
 #: ./invoice/invoice.pt:25
 msgid "invoice_text"
-msgstr ""
+msgstr "Merci pour votre commande. Vous recevrez une facture par e-mail. Dès que nous recevons le montant sur ??notre compte bancaire, votre offre soit livré."
 
 #. Default: "Order Received"
 #: ./invoice/invoice.pt:22
 msgid "order_received"
-msgstr ""
+msgstr "Commande reçue"
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
 msgid "payment_aborted"
-msgstr ""
+msgstr "Paiement annulé"
 
 #. Default: "continue"
 #: ./invoice/invoice.pt:31
 #: ./six_payment/aborted.pt:29
 #: ./six_payment/failed.pt:35
 msgid "payment_done"
-msgstr ""
+msgstr "Continuer"
 
 #. Default: "Payment Error"
 #: ./six_payment/success.pt:35
 msgid "payment_error"
-msgstr ""
+msgstr "Erreur de paiement"
 
 #. Default: "Payment Failed"
 #: ./six_payment/failed.pt:22
 msgid "payment_failed"
-msgstr ""
+msgstr "Paiement échoué"
 
 #. Default: "Payment Success"
 #: ./six_payment/success.pt:24
 msgid "payment_success"
-msgstr ""
+msgstr "Le succès de vente"
 
 #. Default: "Six Payment"
 #: ./six_payment/__init__.py:50
 msgid "six_payment"
-msgstr ""
+msgstr "Six Payment"
 
 #. Default: "Payment has been aborted."
 #: ./six_payment/aborted.pt:25
 msgid "six_payment_aborted_text"
-msgstr ""
+msgstr "Le paiement a été annulé."
 
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
 #: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
-msgstr ""
+msgstr "Sorry. Impossible de terminer votre commande. Si vous pensez que l'échec reste de notre côté, s'il vous plaît contactez vous."
 
 #. Default: "Your Order has been completed successful."
 #: ./six_payment/success.pt:27
 msgid "six_payment_success_text"
-msgstr ""
+msgstr "Votre commande a été effectuée avec succès."
 
 #. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
 #: ./six_payment/success.pt:39
 msgid "six_payment_verification_failed"
-msgstr ""
+msgstr "Quelque chose de méchant qui se passe. Vérification des paiements a échoué. Si vous pensez que l'échec reste de notre côté, s'il vous plaît contactez nous."
 
 #: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
