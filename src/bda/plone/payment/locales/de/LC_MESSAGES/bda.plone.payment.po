@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-24 15:36+0000\n"
+"POT-Creation-Date: 2012-11-07 16:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,70 +15,71 @@ msgstr ""
 "Domain: DOMAIN\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
-#: ./invoice/__init__.py:14
 #. Default: "Invoice"
+#: ./invoice/__init__.py:14
 msgid "invoice"
 msgstr "Rechnung"
 
+#. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
 #: ./invoice/invoice.pt:25
-#. Default: "Thanks for your Order."
+#, fuzzy
 msgid "invoice_text"
 msgstr "Vielen Dank für Ihre Bestellung."
 
-#: ./invoice/invoice.pt:22
 #. Default: "Order Received"
+#: ./invoice/invoice.pt:22
 msgid "order_received"
 msgstr "Bestellung eingegangen"
 
-#: ./six_payment/aborted.pt:22
 #. Default: "Payment Aborted"
+#: ./six_payment/aborted.pt:22
 msgid "payment_aborted"
 msgstr "Zahlung abgebrochen"
 
+#. Default: "continue"
 #: ./invoice/invoice.pt:31
 #: ./six_payment/aborted.pt:29
 #: ./six_payment/failed.pt:35
-#. Default: "continue"
 msgid "payment_done"
 msgstr "weiter"
 
-#: ./six_payment/success.pt:35
 #. Default: "Payment Error"
+#: ./six_payment/success.pt:35
 msgid "payment_error"
 msgstr "Fehler während Zahlungsvorgang"
 
-#: ./six_payment/failed.pt:22
 #. Default: "Payment Failed"
+#: ./six_payment/failed.pt:22
 msgid "payment_failed"
 msgstr "Zahlung fehlgeschlagen"
 
-#: ./six_payment/success.pt:24
 #. Default: "Payment Success"
+#: ./six_payment/success.pt:24
 msgid "payment_success"
 msgstr "Bestellung erfolgreich abgeschlossen"
 
-#: ./six_payment/__init__.py:50
 #. Default: "Six Payment"
+#: ./six_payment/__init__.py:50
 msgid "six_payment"
 msgstr "SIX Payment"
 
-#: ./six_payment/aborted.pt:25
 #. Default: "Payment has been aborted."
+#: ./six_payment/aborted.pt:25
 msgid "six_payment_aborted_text"
 msgstr "Der Zahlungsvorgang wurde abgebrochen."
 
-#: ./six_payment/failed.pt:26
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
+#: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
 msgstr "Fehler beim abschließen Ihrer Bestellung. Sollten Sie diese Meldung irrtümlich erhalten, kontaktieren Sie"
 
-#: ./six_payment/success.pt:27
 #. Default: "Your Order has been completed successful."
+#: ./six_payment/success.pt:27
 msgid "six_payment_success_text"
 msgstr "Ihre Bestellung wurde erfolgreich abgeschlossen."
 
-#: ./six_payment/success.pt:39
 #. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
+#: ./six_payment/success.pt:39
 msgid "six_payment_verification_failed"
 msgstr "Fehler bei der verifizierung der Zahlung. Sollten Sie diese Medlung irrtümlich erhalten, kontaktieren Sie"
 
@@ -86,7 +87,4 @@ msgstr "Fehler bei der verifizierung der Zahlung. Sollten Sie diese Medlung irrt
 #: ./six_payment/success.pt:43
 msgid "us"
 msgstr "uns"
-
-msgid "quantity_piece"
-msgstr "teststück"
 

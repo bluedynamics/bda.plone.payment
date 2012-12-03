@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-24 15:36+0000\n"
+"POT-Creation-Date: 2012-11-07 16:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,17 +23,17 @@ msgstr ""
 #. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
 #: ./invoice/invoice.pt:25
 msgid "invoice_text"
-msgstr "Merci pour votre commande. Vous recevrez une facture par e-mail. DËs que nous recevons le montant sur ??notre compte bancaire, votre offre soit livrÈ."
+msgstr "Merci pour votre commande. Vous recevrez une facture par e-mail. Dƒçs que nous recevons le montant sur ??notre compte bancaire, votre offre soit livr√©."
 
 #. Default: "Order Received"
 #: ./invoice/invoice.pt:22
 msgid "order_received"
-msgstr "Commande reÁue"
+msgstr "Commande re√ßue"
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
 msgid "payment_aborted"
-msgstr "Paiement annulÈ"
+msgstr "Paiement annul√©"
 
 #. Default: "continue"
 #: ./invoice/invoice.pt:31
@@ -50,12 +50,12 @@ msgstr "Erreur de paiement"
 #. Default: "Payment Failed"
 #: ./six_payment/failed.pt:22
 msgid "payment_failed"
-msgstr "Paiement ÈchouÈ"
+msgstr "Paiement √©chou√©"
 
 #. Default: "Payment Success"
 #: ./six_payment/success.pt:24
 msgid "payment_success"
-msgstr "Le succËs de vente"
+msgstr "Le succƒçs de vente"
 
 #. Default: "Six Payment"
 #: ./six_payment/__init__.py:50
@@ -65,22 +65,22 @@ msgstr "Six Payment"
 #. Default: "Payment has been aborted."
 #: ./six_payment/aborted.pt:25
 msgid "six_payment_aborted_text"
-msgstr "Le paiement a ÈtÈ annulÈ."
+msgstr "Le paiement a √©t√© annul√©."
 
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
 #: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
-msgstr "Sorry. Impossible de terminer votre commande. Si vous pensez que l'Èchec reste de notre cÙtÈ, s'il vous plaÓt contactez vous."
+msgstr "Sorry. Impossible de terminer votre commande. Si vous pensez que l'√©chec reste de notre c√¥t√©, s'il vous pla√Æt contactez vous."
 
 #. Default: "Your Order has been completed successful."
 #: ./six_payment/success.pt:27
 msgid "six_payment_success_text"
-msgstr "Votre commande a ÈtÈ effectuÈe avec succËs."
+msgstr "Votre commande a √©t√© effectu√©e avec succƒçs."
 
 #. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
 #: ./six_payment/success.pt:39
 msgid "six_payment_verification_failed"
-msgstr "Quelque chose de mÈchant qui se passe. VÈrification des paiements a ÈchouÈ. Si vous pensez que l'Èchec reste de notre cÙtÈ, s'il vous plaÓt contactez nous."
+msgstr "Quelque chose de m√©chant qui se passe. V√©rification des paiements a √©chou√©. Si vous pensez que l'√©chec reste de notre c√¥t√©, s'il vous pla√Æt contactez nous."
 
 #: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
