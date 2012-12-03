@@ -20,6 +20,7 @@ _ = MessageFactory('bda.plone.payment')
 
 ACCOUNTID = "99867-94913159"
 PASSWORD = "XAjc3Kna"
+VTCONFIG = ""
 CREATE_PAY_INIT_URL = "https://www.saferpay.com/hosting/CreatePayInit.asp"
 VERIFY_PAY_CONFIRM_URL = "https://www.saferpay.com/hosting/VerifyPayConfirm.asp"
 PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
@@ -70,11 +71,12 @@ def perform_request(url, params=None):
     return res
 
 
-def create_pay_init(accountid, password, amount, currency, description,
+def create_pay_init(accountid, password, vtconfig, amount, currency, description,
                     ordernumber, successlink, faillink, backlink):
     params = {
         'ACCOUNTID': accountid,
         'spPassword': password,
+        'VTCONFIG': vtconfig,
         'AMOUNT': amount,
         'CURRENCY': currency,
         'DESCRIPTION': description,
@@ -119,6 +121,7 @@ class SaferPay(BrowserView):
             data = ISixPaymentData(self.context).data(order_uid)
             accountid = ACCOUNTID
             password = PASSWORD
+            vtconfig = VTCONFIG
             amount = data['amount']
             currency = data['currency']
             description = data['description']
@@ -128,7 +131,7 @@ class SaferPay(BrowserView):
                 % (base_url, order_uid)
             backlink = '%s/@@six_payment_aborted?uid=%s' \
                 % (base_url, order_uid)
-            redirect_url = create_pay_init(accountid, password, amount,
+            redirect_url = create_pay_init(accountid, password, vtconfig, amount,
                                            currency, description, ordernumber,
                                            successlink, faillink, backlink)
         except Exception, e:
