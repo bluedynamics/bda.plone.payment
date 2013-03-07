@@ -10,6 +10,9 @@ unreleased
   in addition, show the order id
   [fRiSi]
 
+- fix lookup for default IPayment adapter in case no default adapter
+  is registered
+  [fRiSi]
 
 0.1
 ---
