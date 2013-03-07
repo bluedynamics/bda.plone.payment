@@ -37,11 +37,9 @@ To de-activate a payment processor unconfigure it using `z3c.unconfigure`_::
 
 
     <include package="z3c.unconfigure" file="meta.zcml"/>
-    
+    <include package="bda.plone.payment"/>
     <unconfigure>
-    
         <adapter name="six_payment" factory="bda.plone.payment.six_payment.SixPayment" />
-        
     </unconfigure>
     
 .. _`z3c.unconfigure`: https://pypi.python.org/pypi/z3c.unconfigure
