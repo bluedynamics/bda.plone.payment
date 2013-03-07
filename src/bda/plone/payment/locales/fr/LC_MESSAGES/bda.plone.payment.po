@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-11-07 16:38+0000\n"
+"POT-Creation-Date: 2013-03-07 12:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,9 +26,14 @@ msgid "invoice_text"
 msgstr "Merci pour votre commande. Vous recevrez une facture par e-mail. Dčs que nous recevons le montant sur ??notre compte bancaire, votre offre soit livré."
 
 #. Default: "Order Received"
-#: ./invoice/invoice.pt:22
+#: ./invoice/invoice.pt:20
 msgid "order_received"
 msgstr "Commande reçue"
+
+#. Default: "Your Order number: ${number}"
+#: ./invoice/invoice.pt:23
+msgid "order_show_id"
+msgstr ""
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
@@ -58,7 +63,7 @@ msgid "payment_success"
 msgstr "Le succčs de vente"
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:50
+#: ./six_payment/__init__.py:51
 msgid "six_payment"
 msgstr "Six Payment"
 

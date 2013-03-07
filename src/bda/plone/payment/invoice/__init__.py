@@ -19,8 +19,17 @@ class Invoice(Payment):
         return '%s/@@invoice?uid=%s' % (self.context.absolute_url(), uid)
 
 
-class InvoiceFinished(BrowserView):
-    
-    def finalize(self):
+class DoInvoice(BrowserView):
+        
+    def __call__(self, **kw):
+        uid = self.request['uid']
         payment = Payments(self.context).get('invoice')
         payment.succeed(self.request, self.request['uid'])
+        
+        self.request.response.redirect('%s/@@invoiced?uid=%s' % (self.context.absolute_url(), uid))
+                
+class InvoiceFinished(BrowserView):
+    
+    def id(self):
+        return self.request.get('uid', None)
+        
