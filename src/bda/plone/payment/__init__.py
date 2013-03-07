@@ -56,11 +56,13 @@ class Payments(object):
     @property
     def default(self):
         adapters = getAdapters((self.context,), IPayment)
+        names = []
         for name, payment in adapters:
             if payment.default:
                 return name
-        if adapters:
-            return adapters[0][0]
+            names.append(name)
+        if names:
+            return names[0]
 
 
 @implementer(IPayment)
