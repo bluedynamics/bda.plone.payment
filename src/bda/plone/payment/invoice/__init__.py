@@ -1,5 +1,7 @@
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
+from bda.plone.orders.common import get_order
+
 from bda.plone.payment import (
     Payment,
     Payments,
@@ -32,4 +34,12 @@ class DoInvoice(BrowserView):
 class InvoiceFinished(BrowserView):
 
     def id(self):
-        return self.request.get('uid', None)
+        
+        uid = self.request.get('uid', None)
+        try:
+            order = get_order(self.context, uid)
+        except ValueError:
+            return None
+        
+        return order.attrs.get('ordernumber')
+        
