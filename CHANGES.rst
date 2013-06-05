@@ -1,12 +1,12 @@
+
 Changelog
 =========
 
-unreleased 
-----------
+0.2dev
+------
 
 - show "emails sent" status message when displaying the
   "thanks for your order" page of the invoce payment processor.
-  
   in addition, show the order id
   [fRiSi]
 
@@ -14,7 +14,8 @@ unreleased
   is registered
   [fRiSi]
 
+
 0.1
 ---
 
-- initial release
+- initial work
