@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2013-03-07 12:30+0000\n"
+"POT-Creation-Date: 2012-11-07 16:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,77 +17,72 @@ msgstr ""
 #. Default: "Invoice"
 #: ./invoice/__init__.py:14
 msgid "invoice"
-msgstr ""
+msgstr "fattura"
 
 #. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
 #: ./invoice/invoice.pt:25
 msgid "invoice_text"
-msgstr ""
+msgstr "Grazie per l'ordine effettuato. Riceverai la relativa fattura per posta elettronica. Non appena l'importo sarà accreditato sul nostro conto corrente, spediremo il tuo ordine."
 
 #. Default: "Order Received"
-#: ./invoice/invoice.pt:20
+#: ./invoice/invoice.pt:22
 msgid "order_received"
-msgstr ""
-
-#. Default: "Your Order number: ${number}"
-#: ./invoice/invoice.pt:23
-msgid "order_show_id"
-msgstr ""
+msgstr "Ordine ricevuto"
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
 msgid "payment_aborted"
-msgstr ""
+msgstr "Pagamento annullato"
 
 #. Default: "continue"
 #: ./invoice/invoice.pt:31
 #: ./six_payment/aborted.pt:29
 #: ./six_payment/failed.pt:35
 msgid "payment_done"
-msgstr ""
+msgstr "Continua"
 
 #. Default: "Payment Error"
 #: ./six_payment/success.pt:35
 msgid "payment_error"
-msgstr ""
+msgstr "Errore nel pagamento"
 
 #. Default: "Payment Failed"
 #: ./six_payment/failed.pt:22
 msgid "payment_failed"
-msgstr ""
+msgstr "Pagamento fallito"
 
 #. Default: "Payment Success"
 #: ./six_payment/success.pt:24
 msgid "payment_success"
-msgstr ""
+msgstr "Pagamento riuscito"
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:51
+#: ./six_payment/__init__.py:50
 msgid "six_payment"
-msgstr ""
+msgstr "Six Payment"
 
 #. Default: "Payment has been aborted."
 #: ./six_payment/aborted.pt:25
 msgid "six_payment_aborted_text"
-msgstr ""
+msgstr "Il pagamento è stato annullato. "
 
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
 #: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
-msgstr ""
+msgstr "Ci scusiamo. Non siamo riusciti a evadere il tuo ordine. Se ritieni che il problema sia ascrivibile a noi, contattaci."
 
 #. Default: "Your Order has been completed successful."
 #: ./six_payment/success.pt:27
 msgid "six_payment_success_text"
-msgstr ""
+msgstr "Il tuo ordine è stato evaso. "
 
 #. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
 #: ./six_payment/success.pt:39
 msgid "six_payment_verification_failed"
-msgstr ""
+msgstr "Si stanno verificando dei problemi.  La validazione del pagamento non è andata a buon fine.  Se ritieni che il problema sia ascrivibile a noi, contattaci."
 
 #: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
 msgid "us"
-msgstr ""
+msgstr "us"
 
