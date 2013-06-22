@@ -25,9 +25,9 @@
       <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
     </p>
 
-    <p i18n:translate="debit_order_text">
-      Thanks for your Order. Your banking account will be charged by order
-      value. As soon as debit order was successful, your offer gets delivered.
+    <p i18n:translate="cash_text">
+      Thanks for your Order. You have choosen to pay in cash. Please print
+      displayed order number and hand it at cash desk.
     </p>
 
     <a href=""
