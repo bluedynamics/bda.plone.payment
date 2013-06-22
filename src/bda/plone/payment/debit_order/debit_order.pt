@@ -17,13 +17,17 @@
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
 
-    <tal:finalize define="finalized view/finalize" />
-
     <h1 class="documentFirstHeading"
-        i18n:translate="payment_aborted">Payment Aborted</h1>
+        i18n:translate="order_received">Order Received</h1>
 
-    <p i18n:translate="six_payment_aborted_text">
-      Payment has been aborted.
+    <p i18n:translate="order_show_id" tal:condition="view/id">
+      Your Order number:
+      <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
+    </p>
+
+    <p i18n:translate="debit_order_text">
+      Thanks for your Order. Your banking account will be charged by order
+      value. As soon as debit order was successful, your offer gets delivered.
     </p>
 
     <a href=""

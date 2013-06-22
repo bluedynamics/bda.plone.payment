@@ -10,27 +10,27 @@ from bda.plone.payment import (
 _ = MessageFactory('bda.plone.payment')
 
 
-class Invoice(Payment):
-    pid = 'invoice'
-    label = _('invoice', 'Invoice')
+class DebitOrder(Payment):
+    pid = 'debit_order'
+    label = _('debit_order', 'Debit Order')
     available = True
     default = False
 
     def init_url(self, uid):
-        return '%s/@@invoice?uid=%s' % (self.context.absolute_url(), uid)
+        return '%s/@@debit_order?uid=%s' % (self.context.absolute_url(), uid)
 
 
-class DoInvoice(BrowserView):
+class DoDebitOrder(BrowserView):
 
     def __call__(self, **kw):
         uid = self.request['uid']
-        payment = Payments(self.context).get('invoice')
+        payment = Payments(self.context).get('debit_order')
         payment.succeed(self.request, uid)
-        url = '%s/@@invoiced?uid=%s' % (self.context.absolute_url(), uid)
+        url = '%s/@@debit_ordered?uid=%s' % (self.context.absolute_url(), uid)
         self.request.response.redirect(url)
 
 
-class InvoiceFinished(BrowserView):
+class DebitOrderFinished(BrowserView):
 
     def id(self):
         uid = self.request.get('uid', None)

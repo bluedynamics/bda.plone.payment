@@ -29,11 +29,11 @@ PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
 class ISixPaymentData(IPaymentData):
     """Data adapter interface for SIX payment.
     """
-    
+
     def uid_for(ordernumber):
         """Return order_uid for ordernumber.
         """
-    
+
     def data(order_uid):
         """Return dict in following format:
         
@@ -51,7 +51,7 @@ class SixPayment(Payment):
     label = _('six_payment', 'Six Payment')
     available = True
     default = True
-    
+
     def init_url(self, uid):
         return '%s/@@six_payment?uid=%s' % (self.context.absolute_url(), uid)
 
@@ -113,7 +113,7 @@ def pay_complete(accountid, password, id):
 
 
 class SaferPay(BrowserView):
-    
+
     def __call__(self):
         base_url = self.context.absolute_url()
         order_uid = self.request['uid']
@@ -147,7 +147,7 @@ def shopmaster_mail(context):
 
 
 class SaferPaySuccess(BrowserView):
-    
+
     def verify(self):
         try:
             data = self.request.get('DATA', '')
@@ -175,18 +175,18 @@ class SaferPaySuccess(BrowserView):
         except Exception, e:
             logger.error(u"Payment verification failed: '%s'" % str(e))
             return False
-    
+
     @property
     def shopmaster_mail(self):
         return shopmaster_mail(self.context)
 
 
 class SaferPayFailed(BrowserView):
-    
+
     def finalize(self):
         payment = Payments(self.context).get('six_payment')
         payment.failed(self.request, self.request['uid'], {'tid': 'none'})
-    
+
     @property
     def shopmaster_mail(self):
         return shopmaster_mail(self.context)

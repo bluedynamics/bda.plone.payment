@@ -16,18 +16,21 @@
 
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
-     
+
     <h1 class="documentFirstHeading"
         i18n:translate="order_received">Order Received</h1>
-    
-    <p i18n:translate="order_show_id" tal:condition="view/id">Your Order number: <span i18n:name="number" tal:replace="view/id">345-424-2323</span></p>
-    
+
+    <p i18n:translate="order_show_id" tal:condition="view/id">
+      Your Order number:
+      <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
+    </p>
+
     <p i18n:translate="invoice_text">
       Thanks for your Order. You will receive an Invoice by E-Mail.
       As soon as we receive the amount at our banking account, your offer gets
       delivered.
     </p>
-    
+
     <a href=""
        class="payment_button"
        tal:attributes="href context/absolute_url"

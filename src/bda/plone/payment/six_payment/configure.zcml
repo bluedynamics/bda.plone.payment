@@ -2,36 +2,32 @@
            xmlns:browser="http://namespaces.zope.org/browser">
 
   <adapter name="six_payment" factory=".SixPayment" />
-  
+
   <browser:page
     for="*"
     name="six_payment"
     class=".SaferPay"
-    permission="zope2.View"
-  />
-  
+    permission="zope2.View" />
+
   <browser:page
     for="*"
     name="six_payment_success"
     template="success.pt"
     class=".SaferPaySuccess"
-    permission="zope2.View"
-  />
-  
+    permission="zope2.View" />
+
   <browser:page
     for="*"
     name="six_payment_failed"
     template="failed.pt"
     class=".SaferPayFailed"
-    permission="zope2.View"
-  />
-  
+    permission="zope2.View" />
+
   <browser:page
     for="*"
     name="six_payment_aborted"
     template="aborted.pt"
     class=".SaferPayFailed"
-    permission="zope2.View"
-  />
+    permission="zope2.View" />
 
 </configure>

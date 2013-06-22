@@ -5,15 +5,15 @@
 
   <browser:page
     for="*"
-    name="invoice"
-    class=".DoInvoice"
+    name="cash"
+    class=".DoCash"
     permission="zope2.View" />
 
   <browser:page
     for="*"
-    name="invoiced"
-    template="invoice.pt"
-    class=".InvoiceFinished"
+    name="cashed"
+    template="cash.pt"
+    class=".CashFinished"
     permission="zope2.View" />
 
 </configure>

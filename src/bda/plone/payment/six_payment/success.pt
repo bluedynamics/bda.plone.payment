@@ -16,25 +16,25 @@
 
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
-    
+
     <tal:block define="verified view/verify">
-      
+
       <tal:verified condition="verified">
-      
+
         <h1 class="documentFirstHeading"
             i18n:translate="payment_success">Payment Success</h1>
-    
+
         <p i18n:translate="six_payment_success_text">
           Your Order has been completed successful.
         </p>
-      
+
       </tal:verified>
-      
+
       <tal:verification_failed condition="not:verified">
-      
+
         <h1 class="documentFirstHeading"
             i18n:translate="payment_error">Payment Error</h1>
-        
+
         <p>
           <span i18n:translate="six_payment_verification_failed">
             Something nasty is going on. Payment verification failed.
@@ -44,11 +44,11 @@
              tal:attributes="href string:mailto:${view/shopmaster_mail}"
              i18n:translate="us">us</a>
         </p>
-      
+
       </tal:verification_failed>
-    
+
     </tal:block>
-    
+
     <a href=""
        class="payment_button"
        tal:attributes="href context/absolute_url"

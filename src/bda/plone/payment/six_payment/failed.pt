@@ -16,12 +16,12 @@
 
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
-    
+
     <tal:finalize define="finalized view/finalize" />
-    
+
     <h1 class="documentFirstHeading"
         i18n:translate="payment_failed">Payment Failed</h1>
-    
+
     <p>
       <span i18n:translate="six_payment_failed_text">
         Sorry. Failed to complete your order. If you think the failure remains
@@ -31,7 +31,7 @@
          tal:attributes="href string:mailto:${view/shopmaster_mail}"
          i18n:translate="us">us</a>
     </p>
-    
+
     <a href=""
        class="payment_button"
        tal:attributes="href context/absolute_url"
