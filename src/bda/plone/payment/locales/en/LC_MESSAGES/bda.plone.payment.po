@@ -1,9 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2013-03-07 12:30+0000\n"
+"POT-Creation-Date: 2013-06-22 10:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,80 +14,104 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: bda.plone.payment\n"
 
+#. Default: "Cash"
+#: ./cash/__init__.py:15
+msgid "cash"
+msgstr "Cash"
+
+#. Default: "Thanks for your Order. You have choosen to pay in cash. Please print displayed order number and hand it at cash desk."
+#: ./cash/cash.pt:28
+msgid "cash_text"
+msgstr "Thanks for your Order. You have choosen to pay in cash. Please print displayed order number and hand it at cash desk."
+
+#. Default: "Debit Order"
+#: ./debit_order/__init__.py:15
+msgid "debit_order"
+msgstr "Debit Order"
+
+#. Default: "Thanks for your Order. Your banking account will be charged by order value. As soon as debit order was successful, your offer gets delivered."
+#: ./debit_order/debit_order.pt:28
+msgid "debit_order_text"
+msgstr "Thanks for your Order. Your banking account will be charged by order value. As soon as debit order was successful, your offer gets delivered."
+
 #. Default: "Invoice"
-#: ./invoice/__init__.py:14
+#: ./invoice/__init__.py:15
 msgid "invoice"
-msgstr ""
+msgstr "Invoice"
 
 #. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
-#: ./invoice/invoice.pt:25
+#: ./invoice/invoice.pt:28
 msgid "invoice_text"
-msgstr ""
+msgstr "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
 
 #. Default: "Order Received"
+#: ./cash/cash.pt:20
+#: ./debit_order/debit_order.pt:20
 #: ./invoice/invoice.pt:20
 msgid "order_received"
-msgstr ""
+msgstr "Order Received"
 
 #. Default: "Your Order number: ${number}"
-#: ./invoice/invoice.pt:23
+#: ./cash/cash.pt:25
+#: ./debit_order/debit_order.pt:25
+#: ./invoice/invoice.pt:25
 msgid "order_show_id"
-msgstr ""
+msgstr "Your Order number: ${number}"
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
 msgid "payment_aborted"
-msgstr ""
+msgstr "Payment Aborted"
 
 #. Default: "continue"
-#: ./invoice/invoice.pt:31
-#: ./six_payment/aborted.pt:29
-#: ./six_payment/failed.pt:35
+#: ./cash/cash.pt:33
+#: ./debit_order/debit_order.pt:33
+#: ./invoice/invoice.pt:34
 msgid "payment_done"
-msgstr ""
+msgstr "continue"
 
 #. Default: "Payment Error"
 #: ./six_payment/success.pt:35
 msgid "payment_error"
-msgstr ""
+msgstr "Payment Error"
 
 #. Default: "Payment Failed"
 #: ./six_payment/failed.pt:22
 msgid "payment_failed"
-msgstr ""
+msgstr "Payment Failed"
 
 #. Default: "Payment Success"
 #: ./six_payment/success.pt:24
 msgid "payment_success"
-msgstr ""
+msgstr "Payment Success"
 
 #. Default: "Six Payment"
 #: ./six_payment/__init__.py:51
 msgid "six_payment"
-msgstr ""
+msgstr "Six Payment"
 
 #. Default: "Payment has been aborted."
 #: ./six_payment/aborted.pt:25
 msgid "six_payment_aborted_text"
-msgstr ""
+msgstr "Payment has been aborted."
 
 #. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
 #: ./six_payment/failed.pt:26
 msgid "six_payment_failed_text"
-msgstr ""
+msgstr "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
 
 #. Default: "Your Order has been completed successful."
 #: ./six_payment/success.pt:27
 msgid "six_payment_success_text"
-msgstr ""
+msgstr "Your Order has been completed successful."
 
 #. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
 #: ./six_payment/success.pt:39
 msgid "six_payment_verification_failed"
-msgstr ""
+msgstr "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
 
 #: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
 msgid "us"
-msgstr ""
+msgstr "us"
 

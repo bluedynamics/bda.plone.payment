@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-07 12:30+0000\n"
+"POT-Creation-Date: 2013-06-22 10:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +14,47 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#. Default: "Cash"
+#: ./cash/__init__.py:15
+msgid "cash"
+msgstr ""
+
+#. Default: "Thanks for your Order. You have choosen to pay in cash. Please print displayed order number and hand it at cash desk."
+#: ./cash/cash.pt:28
+msgid "cash_text"
+msgstr ""
+
+#. Default: "Debit Order"
+#: ./debit_order/__init__.py:15
+msgid "debit_order"
+msgstr ""
+
+#. Default: "Thanks for your Order. Your banking account will be charged by order value. As soon as debit order was successful, your offer gets delivered."
+#: ./debit_order/debit_order.pt:28
+msgid "debit_order_text"
+msgstr ""
+
 #. Default: "Invoice"
-#: ./invoice/__init__.py:14
+#: ./invoice/__init__.py:15
 msgid "invoice"
 msgstr ""
 
 #. Default: "Thanks for your Order. You will receive an Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
-#: ./invoice/invoice.pt:25
+#: ./invoice/invoice.pt:28
 msgid "invoice_text"
 msgstr ""
 
 #. Default: "Order Received"
+#: ./cash/cash.pt:20
+#: ./debit_order/debit_order.pt:20
 #: ./invoice/invoice.pt:20
 msgid "order_received"
 msgstr ""
 
 #. Default: "Your Order number: ${number}"
-#: ./invoice/invoice.pt:23
+#: ./cash/cash.pt:25
+#: ./debit_order/debit_order.pt:25
+#: ./invoice/invoice.pt:25
 msgid "order_show_id"
 msgstr ""
 
@@ -40,9 +64,9 @@ msgid "payment_aborted"
 msgstr ""
 
 #. Default: "continue"
-#: ./invoice/invoice.pt:31
-#: ./six_payment/aborted.pt:29
-#: ./six_payment/failed.pt:35
+#: ./cash/cash.pt:33
+#: ./debit_order/debit_order.pt:33
+#: ./invoice/invoice.pt:34
 msgid "payment_done"
 msgstr ""
 
