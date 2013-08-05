@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2013-06-22 10:31+0000\n"
+"POT-Creation-Date: 2013-08-02 14:44+0000\n"
 "PO-Revision-Date: 2013-03-07 13:33+0100\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: de\n"
 
 #. Default: "Cash"
-#: ./cash/__init__.py:15
+#: ./cash/__init__.py:17
 msgid "cash"
 msgstr "Barzahlung"
 
@@ -27,7 +27,7 @@ msgid "cash_text"
 msgstr "Vielen Dank für Ihre Bestellung. Sie haben Barzahlung gewählt. Bitte Drucken Sie die angezeigte Bestellnumer und weisen diese an der Kassa aus."
 
 #. Default: "Debit Order"
-#: ./debit_order/__init__.py:15
+#: ./debit_order/__init__.py:14
 msgid "debit_order"
 msgstr "Abbuchungsauftrag"
 
@@ -35,6 +35,16 @@ msgstr "Abbuchungsauftrag"
 #: ./debit_order/debit_order.pt:28
 msgid "debit_order_text"
 msgstr "Vielen Dank für Ihre Bestellung. Ihr Konto wird um den Rechnungsbetrag belastet. Sobald der Betrag erfolgreich abgebucht wurde, liefern wir Ihre Bestellung aus."
+
+#. Default: "Kortbetaling"
+#: ./dibs/__init__.py:28
+msgid "dibs"
+msgstr ""
+
+#. Default: "Thanks for your Order. You have choosen to pay by dibs payment service."
+#: ./dibs/dibs.pt:28
+msgid "dibs_text"
+msgstr ""
 
 #. Default: "Invoice"
 #: ./invoice/__init__.py:15
@@ -49,14 +59,14 @@ msgstr "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Rechnung p
 #. Default: "Order Received"
 #: ./cash/cash.pt:20
 #: ./debit_order/debit_order.pt:20
-#: ./invoice/invoice.pt:20
+#: ./dibs/dibs.pt:20
 msgid "order_received"
 msgstr "Bestellung eingegangen"
 
 #. Default: "Your Order number: ${number}"
 #: ./cash/cash.pt:25
 #: ./debit_order/debit_order.pt:25
-#: ./invoice/invoice.pt:25
+#: ./dibs/dibs.pt:25
 msgid "order_show_id"
 msgstr "Ihre Bestellnummer: $number"
 
@@ -68,7 +78,7 @@ msgstr "Zahlung abgebrochen"
 #. Default: "continue"
 #: ./cash/cash.pt:33
 #: ./debit_order/debit_order.pt:33
-#: ./invoice/invoice.pt:34
+#: ./dibs/dibs.pt:32
 msgid "payment_done"
 msgstr "weiter"
 

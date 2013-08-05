@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="bda.plone.payment">
+
+<head>
+  <metal:top fill-slot="top_slot">
+    <tal:border define="dummy python:request.set('disable_border', True)" />
+  </metal:top>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main">
+
+    <h1 class="documentFirstHeading"
+        i18n:translate="order_received">Order Received</h1>
+
+    <p i18n:translate="order_show_id" tal:condition="view/id">
+      Your Order number:
+      <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
+    </p>
+
+    <p i18n:translate="dibs_text">
+      Thanks for your Order. You have choosen to pay by dibs payment service.
+    </p>
+
+    <a href=""
+       class="payment_button"
+       tal:attributes="href context/absolute_url"
+       i18n:translate="payment_done">continue</a>
+
+  </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
