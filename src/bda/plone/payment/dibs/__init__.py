@@ -49,8 +49,12 @@ class DoDibs(BrowserView):
         #current_language = portal_state.language()
         current_language = "nb_NO"
         dibs_url = CREATE_PAY_INIT_URL
+        uid = self.request['uid']
         
-        data = ISixPaymentData(self.context).data(order_uid)
+        data = ISixPaymentData(self.context).data(order_uid)        
+        payment = Payments(self.context).get('dibs')
+        payment.succeed(self.request, uid)
+        
         amount = data['amount']
         currency = data['currency']
         description = data['description']
@@ -61,15 +65,12 @@ class DoDibs(BrowserView):
             'currency':         currency,
             'merchant':         4255617,
             'language':         current_language,
-            'acceptReturnUrl':  self.context.absolute_url() + '/@@dibsed?uid=' + order_uid,
+            'acceptReturnUrl':  self.context.absolute_url() + '/dibsed?uid=' + order_uid,
             'cancelreturnurl':  self.context.absolute_url() + '/dibs_payment_aborted',
             'orderId':          ordernumber,
             'test':             1,
         }
 
-        
-        #url = '%s/@@dibsed?uid=%s' % (self.context.absolute_url(), uid)
-        #self.request.response.redirect(url)
         
         #assembles final url
         param = []
