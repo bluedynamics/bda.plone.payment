@@ -45,11 +45,11 @@ class DoDibs(BrowserView):
         #registry = getUtility(IRegistry)
         #settings = registry.forInterface(IShopSettings)
 
-        #get language
-        context = aq_inner(self.context)
-        portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
-        current_language = portal_state.language()
-        #current_language = "nb_NO"
+        #get language ... is not working 
+        #context = aq_inner(self.context)
+        #portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
+        #current_language = portal_state.language()
+        current_language = "nb_NO"
         
         dibs_url = CREATE_PAY_INIT_URL
         
