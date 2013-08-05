@@ -54,8 +54,6 @@ class DoDibs(BrowserView):
         dibs_url = CREATE_PAY_INIT_URL
         
         data = ISixPaymentData(self.context).data(order_uid)        
-        payment = Payments(self.context).get('dibs')
-        payment.succeed(self.request, uid)
         
         amount = data['amount']
         currency = data['currency']
@@ -90,6 +88,9 @@ class DibsFinished(BrowserView):
 
     def id(self):
         uid = self.request.get('uid', None)
+        payment = Payments(self.context).get('dibs')
+        payment.succeed(self.request, uid)
+        
         try:
             order = get_order(self.context, uid)
         except ValueError:
