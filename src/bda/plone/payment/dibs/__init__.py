@@ -27,7 +27,7 @@ class Dibs(Payment):
     pid = 'dibs'
     label = _('dibs', 'Kortbetaling')
     available = True
-    default = False
+    default = True
 
     def init_url(self, uid):
         return '%s/@@dibs?uid=%s' % (self.context.absolute_url(), uid)
