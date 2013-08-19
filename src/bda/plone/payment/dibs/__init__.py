@@ -68,7 +68,6 @@ class DoDibs(BrowserView):
             'acceptReturnUrl':  self.context.absolute_url() + '/dibsed?uid=' + order_uid,
             'cancelreturnurl':  self.context.absolute_url() + '/dibs_payment_aborted',
             'orderId':          ordernumber,
-            'test':             1,
         }
 
         
