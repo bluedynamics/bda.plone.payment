@@ -20,10 +20,32 @@ Administrators need to mark the order as billed manually after they received the
 payment.
 
 
+Cash
+-------
+
+All Data is sent via email.
+An e-mail with the order is sent.
+
+
+Debit Order
+-----------
+
+All Data is sent via email.
+An e-mail with the order is sent.
+
+
+
 SIX-Payment
 -----------
 
 Uses https://www.saferpay.com
+
+
+DIBS-Payment
+-------------
+
+Uses http://www.dibspayment.com
+( http://www.dibs.dk http://www.dibs.no http://www.dibs.se )
 
 
 Customization

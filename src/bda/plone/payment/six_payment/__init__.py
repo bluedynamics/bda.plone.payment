@@ -50,7 +50,7 @@ class SixPayment(Payment):
     pid = 'six_payment'
     label = _('six_payment', 'Six Payment')
     available = True
-    default = True
+    default = False
 
     def init_url(self, uid):
         return '%s/@@six_payment?uid=%s' % (self.context.absolute_url(), uid)

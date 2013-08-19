@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <adapter name="dibs" factory=".Dibs" />
+
+  <browser:page
+    for="*"
+    name="dibs"
+    class=".DoDibs"
+    permission="zope2.View" />
+
+  <browser:page
+    for="*"
+    name="dibsed"
+    template="dibs.pt"
+    class=".DibsFinished"
+    permission="zope2.View" />
+
+</configure>

@@ -13,7 +13,7 @@ _ = MessageFactory('bda.plone.payment')
 class DebitOrder(Payment):
     pid = 'debit_order'
     label = _('debit_order', 'Debit Order')
-    available = True
+    available = False
     default = False
 
     def init_url(self, uid):

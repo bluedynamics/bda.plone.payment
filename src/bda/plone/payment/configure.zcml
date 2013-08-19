@@ -11,7 +11,8 @@
   <include package=".debit_order" />
   <include package=".invoice" />
   <include package=".six_payment" />
-
+  <include package=".dibs" />
+  
   <browser:resource
     name="bda.plone.payment.css"
     file="resources/payment.css" />
