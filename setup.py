@@ -35,6 +35,12 @@ setup(name='bda.plone.payment',
           'setuptools',
           'Plone',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+              'bda.plone.payment',
+          ]
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
