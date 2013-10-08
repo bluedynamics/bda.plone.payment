@@ -1,3 +1,4 @@
 *.pyc
 src/bda.plone.payment.egg-info/
 *.mo
+dist/

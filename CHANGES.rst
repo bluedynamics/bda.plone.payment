@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.2dev
-------
+0.2
+---
 
 - show "emails sent" status message when displaying the
   "thanks for your order" page of the invoce payment processor.
