@@ -63,6 +63,17 @@ class IPaymentData(Interface):
     """Interface for providing data required by payment.
     """
 
+    def uid_for(ordernumber):
+        """Return order_uid for ordernumber.
+        """
+
     def data(order_uid):
-        """Return payment related data.
+        """Return dict containing payment related order data like:
+
+        {
+            'amount': '1000',
+            'currency': 'EUR',
+            'description': 'description',
+            'ordernumber': '1234567890',
+        }
         """

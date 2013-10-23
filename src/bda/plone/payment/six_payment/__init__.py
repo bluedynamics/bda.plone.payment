@@ -26,26 +26,6 @@ VERIFY_PAY_CONFIRM_URL = "https://www.saferpay.com/hosting/VerifyPayConfirm.asp"
 PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
 
 
-class ISixPaymentData(IPaymentData):
-    """Data adapter interface for SIX payment.
-    """
-
-    def uid_for(ordernumber):
-        """Return order_uid for ordernumber.
-        """
-
-    def data(order_uid):
-        """Return dict in following format:
-        
-        {
-            'amount': '1000',
-            'currency': 'EUR',
-            'description': 'description',
-            'ordernumber': '1234567890',
-        }
-        """
-
-
 class SixPayment(Payment):
     pid = 'six_payment'
     label = _('six_payment', 'Six Payment')
@@ -118,7 +98,7 @@ class SaferPay(BrowserView):
         base_url = self.context.absolute_url()
         order_uid = self.request['uid']
         try:
-            data = ISixPaymentData(self.context).data(order_uid)
+            data = IPaymentData(self.context).data(order_uid)
             accountid = ACCOUNTID
             password = PASSWORD
             vtconfig = VTCONFIG
@@ -163,7 +143,7 @@ class SaferPaySuccess(BrowserView):
                 logger.error(u"Payment completion failed: '%s'" % str(e))
             data = etree.fromstring(data)
             ordernumber = data.get('ORDERID')
-            order_uid = ISixPaymentData(self.context).uid_for(ordernumber)
+            order_uid = IPaymentData(self.context).uid_for(ordernumber)
             payment = Payments(self.context).get('six_payment')
             evt_data = {'tid': tid}
             if success:

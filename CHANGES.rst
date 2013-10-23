@@ -5,7 +5,9 @@ Changelog
 0.3dev
 ------
 
-- no changes yet
+- Remove ``bda.plone.payment.six_payment.ISixPaymentData`` interface. Use
+  ``bda.plone.payment.interfaces.IPaymentData`` instead.
+  [rnix]
 
 
 0.2
