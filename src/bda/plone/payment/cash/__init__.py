@@ -1,10 +1,8 @@
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from bda.plone.orders.common import get_order
-from bda.plone.payment import (
-    Payment,
-    Payments,
-)
+from bda.plone.payment import Payment
+from bda.plone.payment import Payments
 
 
 _ = MessageFactory('bda.plone.payment')

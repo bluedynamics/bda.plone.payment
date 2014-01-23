@@ -1,19 +1,13 @@
-from zope.interface import (
-    implementer,
-    Interface,
-)
-from zope.component import (
-    adapter,
-    getAdapter,
-    getAdapters,
-)
+from zope.interface import implementer
+from zope.interface import Interface
+from zope.component import adapter
+from zope.component import getAdapter
+from zope.component import getAdapters
 from zope.event import notify
-from .interfaces import (
-    IPayment,
-    IPaymentEvent,
-    IPaymentSuccessEvent,
-    IPaymentFailedEvent,
-)
+from .interfaces import IPayment
+from .interfaces import IPaymentEvent
+from .interfaces import IPaymentSuccessEvent
+from .interfaces import IPaymentFailedEvent
 
 
 @implementer(IPaymentEvent)

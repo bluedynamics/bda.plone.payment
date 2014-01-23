@@ -8,10 +8,8 @@ from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from ..interfaces import IPaymentData
-from .. import (
-    Payment,
-    Payments,
-)
+from .. import Payment
+from .. import Payments
 
 
 logger = logging.getLogger('bda.plone.payment')
