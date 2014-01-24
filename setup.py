@@ -37,7 +37,6 @@ setup(
     extras_require={
         'test': [
             'plone.app.testing',
-            'bda.plone.payment',
         ]
     },
     entry_points="""
