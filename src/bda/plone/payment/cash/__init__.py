@@ -1,5 +1,7 @@
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
+# TODO: fix dependency on bda.plone.orders.
+# this invalidates the dependency chain.
 from bda.plone.orders.common import get_order
 from bda.plone.payment import Payment
 from bda.plone.payment import Payments
