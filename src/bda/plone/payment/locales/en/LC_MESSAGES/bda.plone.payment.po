@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2013-06-22 10:31+0000\n"
+"POT-Creation-Date: 2014-03-30 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "cash_text"
 msgstr "Thanks for your Order. You have choosen to pay in cash. Please print displayed order number and hand it at cash desk."
 
 #. Default: "Debit Order"
-#: ./debit_order/__init__.py:15
+#: ./debit_order/__init__.py:13
 msgid "debit_order"
 msgstr "Debit Order"
 
@@ -35,7 +35,7 @@ msgid "debit_order_text"
 msgstr "Thanks for your Order. Your banking account will be charged by order value. As soon as debit order was successful, your offer gets delivered."
 
 #. Default: "Invoice"
-#: ./invoice/__init__.py:15
+#: ./invoice/__init__.py:13
 msgid "invoice"
 msgstr "Invoice"
 
@@ -86,7 +86,7 @@ msgid "payment_success"
 msgstr "Payment Success"
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:51
+#: ./six_payment/__init__.py:29
 msgid "six_payment"
 msgstr "Six Payment"
 
