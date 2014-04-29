@@ -27,8 +27,6 @@ PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
 class SixPayment(Payment):
     pid = 'six_payment'
     label = _('six_payment', 'Six Payment')
-    available = True
-    default = True
 
     def init_url(self, uid):
         return '%s/@@six_payment?uid=%s' % (self.context.absolute_url(), uid)

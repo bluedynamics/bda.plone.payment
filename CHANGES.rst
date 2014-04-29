@@ -2,6 +2,31 @@
 Changelog
 =========
 
+0.4dev
+------
+
+- Remove ``available`` and ``default`` attributes from
+  ``bda.plone.payment.cash.Cash``,
+  ``bda.plone.payment.debit_order.DebitOrder``,
+  ``bda.plone.payment.invoice.Invoice`` and
+  ``bda.plone.payment.six_payment.SixPayment`` since they are provided by base
+  class now. **Note** - Remove class patches for ``availability`` and
+  ``default`` settings from your integration packages and and use controlpanel
+  settings in ``bda.plone.shop``.
+  [rnix]
+
+- Add missing ``pid`` attribute to ``bda.plone.payment.Payment``.
+  [rnix]
+
+- Implement ``available`` and ``default`` properties on
+  ``bda.plone.payment.Payment`` using settings from
+  ``bda.plone.payment.interfaces.IPaymentSettings``.
+  [rnix]
+
+- Introduce ``bda.plone.payment.interfaces.IPaymentSettings``.
+  [rnix]
+
+
 0.3
 ---
 

@@ -11,8 +11,6 @@ _ = MessageFactory('bda.plone.payment')
 class DebitOrder(Payment):
     pid = 'debit_order'
     label = _('debit_order', 'Debit Order')
-    available = True
-    default = False
 
     def init_url(self, uid):
         return '%s/@@debit_order?uid=%s' % (self.context.absolute_url(), uid)

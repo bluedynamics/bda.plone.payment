@@ -31,6 +31,14 @@ class IPaymentFailedEvent(IPaymentEvent):
     """
 
 
+class IPaymentSettings(Interface):
+    """Payment availability and default settings.
+    """
+    available = Attribute(u"List of available payment method ids")
+
+    default = Attribute(u"Default payment method")
+
+
 class IPayment(Interface):
     """Single payment.
     """

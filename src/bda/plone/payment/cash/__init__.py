@@ -13,8 +13,6 @@ _ = MessageFactory('bda.plone.payment')
 class Cash(Payment):
     pid = 'cash'
     label = _('cash', 'Cash')
-    available = True
-    default = False
 
     def init_url(self, uid):
         return '%s/@@cash?uid=%s' % (self.context.absolute_url(), uid)
