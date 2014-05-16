@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.4dev
-------
+0.4
+---
 
 - Remove ``available`` and ``default`` attributes from
   ``bda.plone.payment.cash.Cash``,
