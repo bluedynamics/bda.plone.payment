@@ -34,7 +34,7 @@ msgstr "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Rechnung p
 #. Default: "Cash on delivery. An extra fee of ${costs} ${currency} will be charged on order delivery"
 #: ./cash_on_delivery/__init__.py:28
 msgid "cash_on_delivery"
-msgstr "Bezahlung per Nachname. Es entstehen Zusatzkosten von ${costs} ${currency}. Diese sind bei Zustellung der Ware zusätzlich zum Rechnungspreis in Bar zu bezahlen."
+msgstr "Nachname. Es entstehen Zusatzkosten von ${costs} ${currency}. Diese sind bei Zustellung der Ware zusätzlich zum Rechnungsbetrag in Bar zu entrichten."
 
 #. Default: "Thanks for your Order. You will receive the Invoice by E-Mail. You will be asked for payment when receiving the goods. Please make sure you have the money available as your order arrives."
 #: ./cash_on_delivery/cash_on_delivery.pt:28
