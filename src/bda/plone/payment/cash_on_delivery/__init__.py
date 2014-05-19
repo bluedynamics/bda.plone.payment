@@ -13,6 +13,9 @@ _ = MessageFactory('bda.plone.payment')
 
 
 class ICashOnDeliverySettings(Interface):
+
+    currency = Attribute(u"Currency of cash on delivery")
+
     costs = Attribute(u"Costs of cash on delivery as decimal in gross")
 
 
@@ -21,11 +24,13 @@ class CashOnDelivery(Payment):
 
     @property
     def label(self):
+        settings = ICashOnDeliverySettings(self.context)
         return _('cash_on_delivery',
-                 default=u'Cash on delivery. An extra fee of ${costs} will be '
-                         u'charged on order delivery',
+                 default=u'Cash on delivery. An extra fee of ${costs} '
+                         u'${currency} will be charged on order delivery',
                  mapping={
-                     'costs': ICashOnDeliverySettings(self.context).costs
+                     'costs': settings.costs,
+                     'currency': settings.currency
                  })
 
     def init_url(self, uid):
