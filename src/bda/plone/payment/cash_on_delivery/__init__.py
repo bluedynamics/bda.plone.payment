@@ -1,4 +1,6 @@
 from zope.i18nmessageid import MessageFactory
+from zope.interface import Interface
+from zope.interface import Attribute
 from Products.Five import BrowserView
 # TODO: fix dependency on bda.plone.orders.
 # this invalidates the dependency chain.
@@ -10,9 +12,21 @@ from bda.plone.payment import Payments
 _ = MessageFactory('bda.plone.payment')
 
 
+class ICashOnDeliverySettings(Interface):
+    costs = Attribute(u"Costs of cash on delivery as decimal in gross")
+
+
 class CashOnDelivery(Payment):
     pid = 'cash_on_delivery'
-    label = _('cash_on_delivery', 'Cash on delivery')
+
+    @property
+    def label(self):
+        return _('cash_on_delivery',
+                 default=u'Cash on delivery. An extra fee of ${costs} will be '
+                         u'charged on order delivery',
+                 mapping={
+                     'costs': ICashOnDeliverySettings(self.context).costs
+                 })
 
     def init_url(self, uid):
         return '%s/@@cash_on_delivery?uid=%s' % (self.context.absolute_url(), uid)

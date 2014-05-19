@@ -5,6 +5,9 @@ Changelog
 0.5.dev0
 --------
 
+- Add ``bda.plone.payment.cash_on_delivery.ICashOnDeliverySettings``.
+  [rnix]
+
 - Add "Cash on delivery" payment.
   [rnix]
 

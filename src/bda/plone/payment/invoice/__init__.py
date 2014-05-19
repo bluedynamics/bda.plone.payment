@@ -10,7 +10,7 @@ _ = MessageFactory('bda.plone.payment')
 
 class Invoice(Payment):
     pid = 'invoice'
-    label = _('invoice', 'Invoice')
+    label = _('invoice', default=u'Invoice')
 
     def init_url(self, uid):
         return '%s/@@invoice?uid=%s' % (self.context.absolute_url(), uid)
