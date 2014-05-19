@@ -30,6 +30,28 @@ Administrators exports orders or teller staff marks orders billed instantly
 in backend.
 
 
+Cash in advance
+---------------
+
+All Data is sent via email.
+
+Administrators send an invoice by e-mail.
+
+Administrators need to mark the order as billed manually after they received
+the payment.
+
+
+Cash on delivery
+----------------
+
+All Data is sent via email.
+
+Administrators send an invoice by e-mail.
+
+Administrators need to mark the order as billed manually after sending with
+service providing cash on delivery.
+
+
 Debit Order
 -----------
 

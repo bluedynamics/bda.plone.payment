@@ -8,6 +8,8 @@
   <include file="profiles.zcml" />
 
   <include package=".cash" />
+  <include package=".cash_in_advance" />
+  <include package=".cash_on_delivery" />
   <include package=".debit_order" />
   <include package=".invoice" />
   <include package=".six_payment" />

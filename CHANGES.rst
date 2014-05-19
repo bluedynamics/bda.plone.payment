@@ -5,7 +5,10 @@ Changelog
 0.5.dev0
 --------
 
-- No changes yet.
+- Add "Cash on delivery" payment.
+  [rnix]
+
+- Add "Cash in advance" payment.
   [rnix]
 
 

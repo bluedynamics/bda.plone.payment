@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <adapter name="cash_in_advance" factory=".Cash" />
+
+  <browser:page
+    for="*"
+    name="cash_in_advance"
+    class=".DoCashInAdvance"
+    permission="zope2.View" />
+
+  <browser:page
+    for="*"
+    name="cash_in_advance_done"
+    template="cash_in_advance.pt"
+    class=".CashInAdvanceFinished"
+    permission="zope2.View" />
+
+</configure>

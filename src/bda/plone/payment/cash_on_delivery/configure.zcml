@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <adapter name="cash_on_delivery" factory=".Cash" />
+
+  <browser:page
+    for="*"
+    name="cash_on_delivery"
+    class=".DoCashOnDelivery"
+    permission="zope2.View" />
+
+  <browser:page
+    for="*"
+    name="cash_on_delivery_done"
+    template="cash_on_delivery.pt"
+    class=".CashOnDeliveryFinished"
+    permission="zope2.View" />
+
+</configure>

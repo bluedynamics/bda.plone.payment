@@ -25,8 +25,10 @@
       <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
     </p>
 
-    <p i18n:translate="invoice_text">
+    <p i18n:translate="cash_in_advance_text">
       Thanks for your Order. You will receive the Invoice by E-Mail.
+      As soon as we receive the amount at our banking account, your offer gets
+      delivered.
     </p>
 
     <a href=""
