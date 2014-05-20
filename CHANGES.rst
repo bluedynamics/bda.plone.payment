@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.5.dev0
+0.5.dev1
 --------
 
 - Add ``bda.plone.payment.cash_on_delivery.ICashOnDeliverySettings``.
