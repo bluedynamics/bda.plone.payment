@@ -2,6 +2,12 @@
 Changelog
 =========
 
+0.6.dev0
+--------
+
+- no changes yet.
+
+
 0.5
 ---
 
