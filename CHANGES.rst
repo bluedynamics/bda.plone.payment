@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.5.dev1
---------
+0.5
+---
 
 - Add ``bda.plone.payment.cash_on_delivery.ICashOnDeliverySettings``.
   [rnix]
