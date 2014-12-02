@@ -3,7 +3,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-version = '0.6dev.0'
+version = '0.6.dev0.sfama'
 shortdesc = "Payment"
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
