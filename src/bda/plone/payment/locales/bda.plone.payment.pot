@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-19 15:28+0000\n"
+"POT-Creation-Date: 2014-12-16 20:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "order_received"
 msgstr ""
 
-#. Default: "Your Order number: ${number}"
+#. Default: "<span>x</span>: ${number}"
 #: ./cash/cash.pt:25
 #: ./cash_in_advance/cash_in_advance.pt:25
 #: ./cash_on_delivery/cash_on_delivery.pt:25
@@ -133,5 +133,12 @@ msgstr ""
 #: ./six_payment/failed.pt:30
 #: ./six_payment/success.pt:43
 msgid "us"
+msgstr ""
+
+#. Default: "Your Order number"
+#: ./cash/cash.pt:24
+#: ./cash_in_advance/cash_in_advance.pt:24
+#: ./cash_on_delivery/cash_on_delivery.pt:24
+msgid "your_order_order_id"
 msgstr ""
 

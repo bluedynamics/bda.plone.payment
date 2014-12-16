@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2014-05-19 15:28+0000\n"
+"POT-Creation-Date: 2014-12-16 20:37+0000\n"
 "PO-Revision-Date: 2013-06-12 14:37+0100\n"
 "Last-Translator: Peter Holzer <peter.holzer@agitator.com>\n"
 "Language-Team: \n"
@@ -72,7 +72,7 @@ msgstr "Grazie per l'ordine effettuato. Riceverai la relativa fattura per posta 
 msgid "order_received"
 msgstr "Ordine ricevuto"
 
-#. Default: "Your Order number: ${number}"
+#. Default: "<span>x</span>: ${number}"
 #: ./cash/cash.pt:25
 #: ./cash_in_advance/cash_in_advance.pt:25
 #: ./cash_on_delivery/cash_on_delivery.pt:25
@@ -135,4 +135,11 @@ msgstr "Si stanno verificando dei problemi.  La validazione del pagamento non è
 #: ./six_payment/success.pt:43
 msgid "us"
 msgstr "us"
+
+#. Default: "Your Order number"
+#: ./cash/cash.pt:24
+#: ./cash_in_advance/cash_in_advance.pt:24
+#: ./cash_on_delivery/cash_on_delivery.pt:24
+msgid "your_order_order_id"
+msgstr "Il tuo numero d'ordine"
 

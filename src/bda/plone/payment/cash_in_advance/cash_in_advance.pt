@@ -21,7 +21,7 @@
         i18n:translate="order_received">Order Received</h1>
 
     <p i18n:translate="order_show_id" tal:condition="view/id">
-      Your Order number:
+      <span i18n:translate="your_order_order_id">Your Order number</span>:
       <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
     </p>
 

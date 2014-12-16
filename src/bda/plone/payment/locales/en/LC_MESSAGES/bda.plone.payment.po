@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2014-05-19 15:28+0000\n"
+"POT-Creation-Date: 2014-12-16 20:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,10 +71,11 @@ msgstr "Thanks for your Order. You will receive an Invoice by E-Mail."
 msgid "order_received"
 msgstr "Order Received"
 
-#. Default: "Your Order number: ${number}"
+#. Default: "<span>x</span>: ${number}"
 #: ./cash/cash.pt:25
 #: ./cash_in_advance/cash_in_advance.pt:25
 #: ./cash_on_delivery/cash_on_delivery.pt:25
+#, fuzzy
 msgid "order_show_id"
 msgstr "Your Order number: ${number}"
 
@@ -134,4 +135,11 @@ msgstr "Something nasty is going on. Payment verification failed. If you think t
 #: ./six_payment/success.pt:43
 msgid "us"
 msgstr "us"
+
+#. Default: "Your Order number"
+#: ./cash/cash.pt:24
+#: ./cash_in_advance/cash_in_advance.pt:24
+#: ./cash_on_delivery/cash_on_delivery.pt:24
+msgid "your_order_order_id"
+msgstr "Your Order number: ${number}"
 

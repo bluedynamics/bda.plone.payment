@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2014-05-19 15:28+0000\n"
+"POT-Creation-Date: 2014-12-16 20:37+0000\n"
 "PO-Revision-Date: 2013-03-07 13:33+0100\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,10 +73,11 @@ msgstr "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Rechnung p
 msgid "order_received"
 msgstr "Bestellung eingegangen"
 
-#. Default: "Your Order number: ${number}"
+#. Default: "<span>x</span>: ${number}"
 #: ./cash/cash.pt:25
 #: ./cash_in_advance/cash_in_advance.pt:25
 #: ./cash_on_delivery/cash_on_delivery.pt:25
+#, fuzzy
 msgid "order_show_id"
 msgstr "Ihre Bestellnummer: $number"
 
@@ -136,4 +137,11 @@ msgstr "Fehler bei der verifizierung der Zahlung. Sollten Sie diese Medlung irrt
 #: ./six_payment/success.pt:43
 msgid "us"
 msgstr "uns"
+
+#. Default: "Your Order number"
+#: ./cash/cash.pt:24
+#: ./cash_in_advance/cash_in_advance.pt:24
+#: ./cash_on_delivery/cash_on_delivery.pt:24
+msgid "your_order_order_id"
+msgstr "Ihre Bestellnummer: ${number}"
 
