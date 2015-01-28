@@ -16,7 +16,7 @@ CURRENT_PATH=`pwd`
 CATALOGNAME="bda.plone.payment"
 
 # List of languages
-LANGUAGES="en de fr it no"
+LANGUAGES="en de fr it no nl"
 
 # Create locales folder structure for languages
 install -d locales
