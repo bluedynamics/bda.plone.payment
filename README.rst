@@ -83,6 +83,24 @@ Order is marked automatically salaried if payment succeed.
 
 Administrator needs to take action if payment failed.
 
+**TODO**: move six payment processor to ``bda.plone.sixpayment``
+
+
+Addon Payment processors
+========================
+
+Following addon payment processors are known:
+
+* https://github.com/intk/bda.plone.ogonepayment
+* https://github.com/intk/bda.plone.molliepayment
+* https://github.com/intk/bda.plone.easyidealpayment
+* https://github.com/espenmn/bda.plone.klarnainvoice
+* https://github.com/espenmn/bda.plone.klarnapayment
+* https://github.com/espenmn/bda.plone.dibspayment
+
+If you have implemented another payment processors or know other
+implementations than the listed one, please let us know.
+
 
 Providing a payment processor
 =============================
