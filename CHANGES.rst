@@ -2,10 +2,10 @@
 Changelog
 =========
 
-0.6.dev0
+0.7.dev0
 --------
 
-- no changes yet.
+- Plone 5 update
 
 
 0.5
