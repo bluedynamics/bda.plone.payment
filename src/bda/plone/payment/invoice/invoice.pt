@@ -20,8 +20,8 @@
     <h1 class="documentFirstHeading"
         i18n:translate="order_received">Order Received</h1>
 
-    <p i18n:translate="order_show_id" tal:condition="view/id">
-      <span i18n:translate="your_order_order_id">Your Order number</span>:
+    <p i18n:translate="your_order_order_id" tal:condition="view/id">
+      Your Order number:
       <span i18n:name="number" tal:replace="view/id">345-424-2323</span>
     </p>
 
@@ -30,7 +30,7 @@
     </p>
 
     <a href=""
-       class="payment_button"
+       class="payment_button standalone"
        tal:attributes="href context/absolute_url"
        i18n:translate="payment_done">continue</a>
 
