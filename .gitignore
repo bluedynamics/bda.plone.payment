@@ -2,3 +2,4 @@
 src/bda.plone.payment.egg-info/
 *.mo
 dist/
+node_modules
