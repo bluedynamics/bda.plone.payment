@@ -18,4 +18,12 @@
     name="bda.plone.payment.css"
     file="resources/payment.css" />
 
+  <browser:resource
+    name="bda.plone.payment.less"
+    file="resources/payment.less" />
+
+  <browser:resource
+    name="bda.plone.payment-compiled.css"
+    file="resources/payment-compiled.css" />
+
 </configure>
