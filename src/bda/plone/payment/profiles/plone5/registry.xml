@@ -16,7 +16,7 @@
     </value>
     <value key="enabled">True</value>
     <value key="compile">True</value>
-    <value key="csscompilation">++resource++bda.plone.payment-compiled.css</value>
+    <value key="csscompilation">++plone++bda.plone.payment.compiled/payment.js</value>
     <value key="last_compilation">2016-03-11 18:00:00</value>
    </records>
 
