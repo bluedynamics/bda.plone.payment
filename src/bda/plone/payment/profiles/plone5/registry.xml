@@ -3,21 +3,21 @@
           i18n:domain="bda.plone.payment">
 
   <records prefix="plone.resources/bda-plone-payment"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-     <value key="css">
-        <element>++resource++bda.plone.payment.less</element>
-     </value>
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++resource++bda.plone.payment.less</element>
+    </value>
   </records>
 
-  <records prefix="plone.bundles/bda-plone-payment-bundle"
-            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+  <records prefix="plone.bundles/bda-plone-payment"
+           interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="resources">
       <element>bda-plone-payment</element>
     </value>
     <value key="enabled">True</value>
     <value key="compile">True</value>
-    <value key="csscompilation">++plone++bda.plone.payment.compiled/payment.js</value>
+    <value key="csscompilation">++plone++bda.plone.payment/payment.css</value>
     <value key="last_compilation">2016-03-11 18:00:00</value>
-   </records>
+  </records>
 
 </registry>

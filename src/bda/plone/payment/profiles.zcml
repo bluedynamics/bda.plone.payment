@@ -32,5 +32,4 @@
   <utility factory=".setuphandlers.HiddenProfiles" name="bda.plone.payment" />
   <utility factory=".setuphandlers.HiddenProducts" name="bda.plone.payment" />
 
-
 </configure>
