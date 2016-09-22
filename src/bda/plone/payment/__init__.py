@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from zope.interface import implementer
-from zope.interface import Interface
+from bda.plone.payment.interfaces import IPayment
+from bda.plone.payment.interfaces import IPaymentEvent
+from bda.plone.payment.interfaces import IPaymentFailedEvent
+from bda.plone.payment.interfaces import IPaymentSettings
+from bda.plone.payment.interfaces import IPaymentSuccessEvent
 from zope.component import adapter
 from zope.component import getAdapter
 from zope.component import getAdapters
 from zope.event import notify
-from bda.plone.payment.interfaces import IPayment
-from bda.plone.payment.interfaces import IPaymentEvent
-from bda.plone.payment.interfaces import IPaymentSuccessEvent
-from bda.plone.payment.interfaces import IPaymentFailedEvent
-from bda.plone.payment.interfaces import IPaymentSettings
+from zope.interface import implementer
+from zope.interface import Interface
 
 
 @implementer(IPaymentEvent)

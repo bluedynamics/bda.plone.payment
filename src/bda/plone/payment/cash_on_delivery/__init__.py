@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from zope.i18nmessageid import MessageFactory
-from zope.interface import Interface
-from zope.interface import Attribute
-from Products.Five import BrowserView
 # TODO: fix dependency on bda.plone.orders.
 # this invalidates the dependency chain.
 from bda.plone.orders.common import get_order
 from bda.plone.payment import Payment
 from bda.plone.payment import Payments
+from Products.Five import BrowserView
+from zope.i18nmessageid import MessageFactory
+from zope.interface import Attribute
+from zope.interface import Interface
 
 
 _ = MessageFactory('bda.plone.payment')

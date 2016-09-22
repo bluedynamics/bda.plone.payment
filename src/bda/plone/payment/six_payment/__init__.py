@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
+from .. import Payment
+from .. import Payments
+from ..interfaces import IPaymentData
+from lxml import etree
+from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
+from zExceptions import Redirect
+from zope.i18nmessageid import MessageFactory
+
+import logging
 import urllib
 import urllib2
 import urlparse
-import logging
-from lxml import etree
-from zExceptions import Redirect
-from zope.i18nmessageid import MessageFactory
-from Products.Five import BrowserView
-from Products.CMFCore.utils import getToolByName
-from ..interfaces import IPaymentData
-from .. import Payment
-from .. import Payments
 
 
 logger = logging.getLogger('bda.plone.payment')

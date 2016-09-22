@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from zope.i18nmessageid import MessageFactory
-from Products.Five import BrowserView
 from bda.plone.orders.common import get_order
 from bda.plone.payment import Payment
 from bda.plone.payment import Payments
+from Products.Five import BrowserView
+from zope.i18nmessageid import MessageFactory
 
 
 _ = MessageFactory('bda.plone.payment')

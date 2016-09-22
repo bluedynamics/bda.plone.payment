@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from zope.interface import alsoProvides
+from bda.plone.payment.interfaces import IPaymentExtensionLayer
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from bda.plone.payment.interfaces import IPaymentExtensionLayer
+from zope.interface import alsoProvides
 
 
 def set_browserlayer(request):

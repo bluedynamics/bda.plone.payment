@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
+from bda.plone.payment.tests import Payment_INTEGRATION_TESTING
+from bda.plone.payment.tests import set_browserlayer
+
 import unittest2 as unittest
-from bda.plone.payment.tests import (
-    Payment_INTEGRATION_TESTING,
-    set_browserlayer,
-)
 
 
 class TestPayment(unittest.TestCase):
