@@ -74,7 +74,7 @@ def verify_pay_confirm(data, signature):
     }
     res = perform_request(VERIFY_PAY_CONFIRM_URL, params)
     if res[:2] != 'OK':
-        raise SaferPayError(u"Payment Verification Failed: '%s'" % res[7:]) 
+        raise SaferPayError(u"Payment Verification Failed: '%s'" % res[7:])
     return urlparse.parse_qs(res[3:])
 
 

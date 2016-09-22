@@ -24,11 +24,13 @@ class PaymentEvent(object):
 
 
 @implementer(IPaymentSuccessEvent)
-class PaymentSuccessEvent(PaymentEvent): pass
+class PaymentSuccessEvent(PaymentEvent):
+    pass
 
 
 @implementer(IPaymentFailedEvent)
-class PaymentFailedEvent(PaymentEvent): pass
+class PaymentFailedEvent(PaymentEvent):
+    pass
 
 
 class Payments(object):
