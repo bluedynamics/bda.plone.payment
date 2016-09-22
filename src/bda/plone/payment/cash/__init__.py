@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 # TODO: fix dependency on bda.plone.orders.

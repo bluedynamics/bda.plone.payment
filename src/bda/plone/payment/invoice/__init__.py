@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from zope.i18nmessageid import MessageFactory
 from Products.Five import BrowserView
 from bda.plone.orders.common import get_order

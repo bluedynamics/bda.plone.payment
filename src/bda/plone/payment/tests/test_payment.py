@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import unittest2 as unittest
 from bda.plone.payment.tests import (
     Payment_INTEGRATION_TESTING,
