@@ -5,6 +5,9 @@ Changelog
 0.7.dev0
 --------
 
+- Fix: Provide plone.protect authenticator token in invoice payment process
+  [jensens]
+
 - Plone 5 update
 
 

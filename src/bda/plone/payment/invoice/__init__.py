@@ -2,6 +2,7 @@
 from bda.plone.orders.common import get_order
 from bda.plone.payment import Payment
 from bda.plone.payment import Payments
+from plone.protect.authenticator import createToken
 from Products.Five import BrowserView
 from zope.i18nmessageid import MessageFactory
 
@@ -14,7 +15,11 @@ class Invoice(Payment):
     label = _('invoice', default=u'Invoice')
 
     def init_url(self, uid):
-        return '%s/@@invoice?uid=%s' % (self.context.absolute_url(), uid)
+        return '{url}/@@invoice?uid={uid}&_authenticator={token}'.format(
+            url=self.context.absolute_url(),
+            uid=uid,
+            token=createToken()
+        )
 
 
 class DoInvoice(BrowserView):
@@ -23,7 +28,11 @@ class DoInvoice(BrowserView):
         uid = self.request['uid']
         payment = Payments(self.context).get('invoice')
         payment.succeed(self.request, uid)
-        url = '%s/@@invoiced?uid=%s' % (self.context.absolute_url(), uid)
+        url = '{url}/@@invoiced?uid={uid}&_authenticator={token}'.format(
+            url=self.context.absolute_url(),
+            uid=uid,
+            token=createToken()
+        )
         self.request.response.redirect(url)
 
 
