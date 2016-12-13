@@ -75,7 +75,6 @@ msgstr "Order Received"
 #: ./cash/cash.pt:25
 #: ./cash_in_advance/cash_in_advance.pt:25
 #: ./cash_on_delivery/cash_on_delivery.pt:25
-#, fuzzy
 msgid "order_show_id"
 msgstr "Your Order number: ${number}"
 
