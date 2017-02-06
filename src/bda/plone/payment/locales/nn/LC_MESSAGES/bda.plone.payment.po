@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nynorsk\n"
+"POT-Creation-Date: 2014-12-16 20:37+0000\n"
+"PO-Revision-Date: 2017-02-06 15:38+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
+"Language-Team: Grieg Medialog\n"
+"Language: nn_NO\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#. Default: "Cash"
+#: cash/__init__.py:15
+msgid "cash"
+msgstr "Kontant"
+
+#. Default: "Cash in advance"
+#: cash_in_advance/__init__.py:15
+msgid "cash_in_advance"
+msgstr "Forhåndsbetaling"
+
+#. Default: "Thanks for your Order. You will receive the Invoice by E-Mail. As soon as we receive the amount at our banking account, your offer gets delivered."
+#: cash_in_advance/cash_in_advance.pt:28
+msgid "cash_in_advance_text"
+msgstr "Forhåndsbetaling tekst"
+
+#. Default: "Cash on delivery. An extra fee of ${costs} ${currency} will be charged on order delivery"
+#: cash_on_delivery/__init__.py:28
+msgid "cash_on_delivery"
+msgstr "Kontant ved levering"
+
+#. Default: "Thanks for your Order. You will receive the Invoice by E-Mail. You will be asked for payment when receiving the goods. Please make sure you have the money available as your order arrives."
+#: cash_on_delivery/cash_on_delivery.pt:28
+msgid "cash_on_delivery_text"
+msgstr "Kontant ved levering"
+
+#. Default: "Thanks for your Order. You have choosen to pay in cash. Please print displayed order number and hand it at cash desk."
+#: cash/cash.pt:28
+msgid "cash_text"
+msgstr "kontant tekst"
+
+#. Default: "Debit Order"
+#: debit_order/__init__.py:13
+msgid "debit_order"
+msgstr ""
+
+#. Default: "Thanks for your Order. Your banking account will be charged by order value. As soon as debit order was successful, your offer gets delivered."
+#: debit_order/debit_order.pt:28
+msgid "debit_order_text"
+msgstr ""
+
+#. Default: "Invoice"
+#: invoice/__init__.py:13
+msgid "invoice"
+msgstr "faktura"
+
+#. Default: "Thanks for your Order. You will receive the Invoice by E-Mail."
+#: invoice/invoice.pt:28
+msgid "invoice_text"
+msgstr "faktura tekst"
+
+#. Default: "Order Received"
+#: cash/cash.pt:20 cash_in_advance/cash_in_advance.pt:20
+#: cash_on_delivery/cash_on_delivery.pt:20
+msgid "order_received"
+msgstr "ordre motteke"
+
+#. Default: "<span>x</span>: ${number}"
+#: cash/cash.pt:25 cash_in_advance/cash_in_advance.pt:25
+#: cash_on_delivery/cash_on_delivery.pt:25
+msgid "order_show_id"
+msgstr "vis ordre"
+
+#. Default: "Payment Aborted"
+#: six_payment/aborted.pt:22
+msgid "payment_aborted"
+msgstr "betaling avbrote"
+
+#. Default: "continue"
+#: cash/cash.pt:33 cash_in_advance/cash_in_advance.pt:34
+#: cash_on_delivery/cash_on_delivery.pt:34
+msgid "payment_done"
+msgstr "Betalt"
+
+#. Default: "Payment Error"
+#: six_payment/success.pt:35
+msgid "payment_error"
+msgstr "Betalingsfeil"
+
+#. Default: "Payment Failed"
+#: six_payment/failed.pt:22
+msgid "payment_failed"
+msgstr "Betaling ikkje gjort"
+
+#. Default: "Payment Success"
+#: six_payment/success.pt:24
+msgid "payment_success"
+msgstr "Betalt"
+
+#. Default: "Six Payment"
+#: six_payment/__init__.py:29
+msgid "six_payment"
+msgstr ""
+
+#. Default: "Payment has been aborted."
+#: six_payment/aborted.pt:25
+msgid "six_payment_aborted_text"
+msgstr ""
+
+#. Default: "Sorry. Failed to complete your order. If you think the failure remains on our side, please contact"
+#: six_payment/failed.pt:26
+msgid "six_payment_failed_text"
+msgstr ""
+
+#. Default: "Your Order has been completed successful."
+#: six_payment/success.pt:27
+msgid "six_payment_success_text"
+msgstr ""
+
+#. Default: "Something nasty is going on. Payment verification failed. If you think the failure remains on our side, please contact"
+#: six_payment/success.pt:39
+msgid "six_payment_verification_failed"
+msgstr ""
+
+#: six_payment/failed.pt:30 six_payment/success.pt:43
+msgid "us"
+msgstr ""
+
+#. Default: "Your Order number"
+#: cash/cash.pt:24 cash_in_advance/cash_in_advance.pt:24
+#: cash_on_delivery/cash_on_delivery.pt:24
+msgid "your_order_order_id"
+msgstr "ditt kundenr."
