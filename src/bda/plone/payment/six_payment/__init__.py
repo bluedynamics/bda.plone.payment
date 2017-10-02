@@ -2,8 +2,8 @@
 from .. import Payment
 from .. import Payments
 from ..interfaces import IPaymentData
+from bda.plone.shop.utils import get_shop_settings
 from lxml import etree
-from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
@@ -120,8 +120,7 @@ class SaferPay(BrowserView):
 
 
 def shopmaster_mail(context):
-    props = getToolByName(context, 'portal_properties')
-    return props.site_properties.email_from_address
+    return get_shop_settings().admin_email
 
 
 class SaferPaySuccess(BrowserView):

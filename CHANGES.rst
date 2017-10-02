@@ -5,10 +5,14 @@ Changelog
 0.7.dev0
 --------
 
+- Fix shop admin email address lookup in sic payment.
+  [rnix]
+
 - Fix: Provide plone.protect authenticator token in invoice payment process
   [jensens]
 
 - Plone 5 update
+  [rnix, agitator]
 
 
 0.5
