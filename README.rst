@@ -91,6 +91,7 @@ Addon Payment processors
 
 Following addon payment processors are known:
 
+* https://github.com/bluedynamics/bda.plone.stripe
 * https://github.com/intk/bda.plone.ogonepayment
 * https://github.com/intk/bda.plone.molliepayment
 * https://github.com/intk/bda.plone.easyidealpayment
@@ -111,7 +112,9 @@ XXX
 Customize existing payment processors
 =====================================
 
-To de-activate a payment processor unconfigure it using `z3c.unconfigure`_::
+To de-activate a payment processor unconfigure it using `z3c.unconfigure`_:
+
+.. code-block:: xml
 
     <include package="z3c.unconfigure" file="meta.zcml"/>
     <include package="bda.plone.payment"/>
