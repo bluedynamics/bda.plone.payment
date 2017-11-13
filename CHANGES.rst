@@ -2,8 +2,8 @@
 Changelog
 =========
 
-0.7.dev0
---------
+1.0a1 (unreleased)
+------------------
 
 - Fix shop admin email address lookup in sic payment.
   [rnix]
