@@ -5,13 +5,13 @@
 
   <browser:page
     for="*"
-    name="invoice"
+    name="pay_invoice"
     class=".DoInvoice"
     permission="zope2.View" />
 
   <browser:page
     for="*"
-    name="invoiced"
+    name="pay_invoice_done"
     template="invoice.pt"
     class=".InvoiceFinished"
     permission="zope2.View" />

@@ -15,7 +15,7 @@ class Invoice(Payment):
     label = _('invoice', default=u'Invoice')
 
     def init_url(self, uid):
-        return '{url}/@@invoice?uid={uid}&_authenticator={token}'.format(
+        return '{url}/@@pay_invoice?uid={uid}&_authenticator={token}'.format(
             url=self.context.absolute_url(),
             uid=uid,
             token=createToken()
@@ -28,7 +28,7 @@ class DoInvoice(BrowserView):
         uid = self.request['uid']
         payment = Payments(self.context).get('invoice')
         payment.succeed(self.request, uid)
-        url = '{url}/@@invoiced?uid={uid}&_authenticator={token}'.format(
+        url = '{url}/@@pay_invoice_done?uid={uid}&_authenticator={token}'.format(
             url=self.context.absolute_url(),
             uid=uid,
             token=createToken()

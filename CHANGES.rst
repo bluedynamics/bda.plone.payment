@@ -5,6 +5,10 @@ Changelog
 1.0a1 (unreleased)
 ------------------
 
+- Rename invoice payment related views to avoid conflicts with bda.plone.orders
+  invoice view.
+  [rnix]
+
 - Fix shop admin email address lookup in sic payment.
   [rnix]
 
