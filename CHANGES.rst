@@ -5,6 +5,9 @@ Changelog
 1.0a1 (unreleased)
 ------------------
 
+- Replace unittest2 by unittest
+  [llisa123]
+
 - Rename invoice payment related views to avoid conflicts with bda.plone.orders
   invoice view.
   [rnix]

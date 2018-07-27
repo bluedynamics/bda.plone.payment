@@ -2,7 +2,7 @@
 from bda.plone.payment.tests import Payment_INTEGRATION_TESTING
 from bda.plone.payment.tests import set_browserlayer
 
-import unittest2 as unittest
+import unittest
 
 
 class TestPayment(unittest.TestCase):
