@@ -5,6 +5,9 @@ Changelog
 1.0a1 (unreleased)
 ------------------
 
+- Show order_uid in payment_success page url as on payment_failed and payment_aborted.
+  [agitator]
+
 - Replace unittest2 by unittest
   [llisa123]
 

@@ -104,14 +104,16 @@ class SaferPay(BrowserView):
             currency = data['currency']
             description = data['description']
             ordernumber = data['ordernumber']
-            successlink = '%s/@@six_payment_success' % base_url
+            successlink = '%s/@@six_payment_success?uid=%s' \
+                % (base_url, order_uid)
             faillink = '%s/@@six_payment_failed?uid=%s' \
                 % (base_url, order_uid)
             backlink = '%s/@@six_payment_aborted?uid=%s' \
                 % (base_url, order_uid)
-            redirect_url = create_pay_init(accountid, password, vtconfig, amount,
-                                           currency, description, ordernumber,
-                                           successlink, faillink, backlink)
+            redirect_url = create_pay_init(accountid, password, vtconfig,
+                                           amount, currency, description,
+                                           ordernumber, successlink,
+                                           faillink, backlink)
         except Exception, e:
             logger.error(u"Could not initialize payment: '%s'" % str(e))
             redirect_url = '%s/@@six_payment_failed?uid=%s' \
