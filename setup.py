@@ -4,7 +4,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-version = '1.0a1.dev0'
+version = '2.0.dev0'
 shortdesc = "Payment"
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
@@ -17,11 +17,11 @@ setup(
     description=shortdesc,
     long_description=longdesc,
     classifiers=[
-        'Environment :: Web Environment',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        "Framework :: Plone",
+        "Framework :: Plone :: 5.1",
+        "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
     ],
     author='BlueDynamics Alliance',
     author_email='dev@bluedynamics.com',
