@@ -6,25 +6,9 @@
   <include package="Products.GenericSetup" file="meta.zcml" />
 
   <genericsetup:registerProfile
-    zcml:condition="not-have plone-5"
     name="default"
     title="bda.plone.payment"
-    directory="profiles/plone4"
-    description="bda.plone.payment"
-    provides="Products.GenericSetup.interfaces.EXTENSION" />
-
-  <genericsetup:registerProfile
-    zcml:condition="have plone-5"
-    name="default"
-    title="bda.plone.payment"
-    directory="profiles/plone5"
-    description="bda.plone.payment"
-    provides="Products.GenericSetup.interfaces.EXTENSION" />
-
-  <genericsetup:registerProfile
-    name="install-base"
-    title="bda.plone.payment base"
-    directory="profiles/base"
+    directory="profiles/default"
     description="bda.plone.payment"
     provides="Products.GenericSetup.interfaces.EXTENSION" />
 
