@@ -10,7 +10,7 @@ class HiddenProfiles(object):
     def getNonInstallableProfiles(self):
         """Do not show on Plone's list of installable profiles.
         """
-        return ['bda.plone.payment:install-base']
+        return []
 
 
 @implementer(QuickInstaller.INonInstallable)
@@ -19,4 +19,4 @@ class HiddenProducts(object):
     def getNonInstallableProducts(self):
         """Do not show on QuickInstaller's list of installable products.
         """
-        return ['bda.plone.payment:install-base']
+        return []
