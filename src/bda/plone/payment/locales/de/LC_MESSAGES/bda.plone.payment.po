@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2014-12-16 20:37+0000\n"
+"POT-Creation-Date: 2019-02-10 13:45+0000\n"
 "PO-Revision-Date: 2013-03-07 13:33+0100\n"
 "Last-Translator: Peter Holzer <hpeter@agitator.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,13 +16,17 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 "Language: de\n"
 
+#: ./profiles.zcml:13
+msgid "bda.plone.payment"
+msgstr ""
+
 #. Default: "Cash"
-#: ./cash/__init__.py:15
+#: ./cash/__init__.py:16
 msgid "cash"
 msgstr "Barzahlung"
 
 #. Default: "Cash in advance"
-#: ./cash_in_advance/__init__.py:15
+#: ./cash_in_advance/__init__.py:16
 msgid "cash_in_advance"
 msgstr "Vorkasse"
 
@@ -32,7 +36,7 @@ msgid "cash_in_advance_text"
 msgstr "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Rechnung per E-Mail. Sobald ihre Zahlung bei uns eingetroffen ist liefern wir ihre Bestellung aus."
 
 #. Default: "Cash on delivery. An extra fee of ${costs} ${currency} will be charged on order delivery"
-#: ./cash_on_delivery/__init__.py:28
+#: ./cash_on_delivery/__init__.py:29
 msgid "cash_on_delivery"
 msgstr "Nachname. Es entstehen Zusatzkosten von ${costs} ${currency}. Diese sind bei Zustellung der Ware zusätzlich zum Rechnungsbetrag in Bar zu entrichten."
 
@@ -47,7 +51,7 @@ msgid "cash_text"
 msgstr "Vielen Dank für Ihre Bestellung. Sie haben Barzahlung gewählt. Bitte Drucken Sie die angezeigte Bestellnumer und weisen diese an der Kassa aus."
 
 #. Default: "Debit Order"
-#: ./debit_order/__init__.py:13
+#: ./debit_order/__init__.py:14
 msgid "debit_order"
 msgstr "Abbuchungsauftrag"
 
@@ -57,7 +61,7 @@ msgid "debit_order_text"
 msgstr "Vielen Dank für Ihre Bestellung. Ihr Konto wird um den Rechnungsbetrag belastet. Sobald der Betrag erfolgreich abgebucht wurde, liefern wir Ihre Bestellung aus."
 
 #. Default: "Invoice"
-#: ./invoice/__init__.py:13
+#: ./invoice/__init__.py:15
 msgid "invoice"
 msgstr "Rechnung"
 
@@ -72,13 +76,6 @@ msgstr "Vielen Dank für Ihre Bestellung. Sie erhalten in Kürze eine Rechnung p
 #: ./cash_on_delivery/cash_on_delivery.pt:20
 msgid "order_received"
 msgstr "Bestellung eingegangen"
-
-#. Default: "<span>x</span>: ${number}"
-#: ./cash/cash.pt:25
-#: ./cash_in_advance/cash_in_advance.pt:25
-#: ./cash_on_delivery/cash_on_delivery.pt:25
-msgid "order_show_id"
-msgstr "Ihre Bestellnummer: $number"
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
@@ -108,7 +105,7 @@ msgid "payment_success"
 msgstr "Bestellung erfolgreich abgeschlossen"
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:29
+#: ./six_payment/__init__.py:31
 msgid "six_payment"
 msgstr "SIX Payment"
 
@@ -137,10 +134,10 @@ msgstr "Fehler bei der verifizierung der Zahlung. Sollten Sie diese Medlung irrt
 msgid "us"
 msgstr "uns"
 
-#. Default: "Your Order number"
-#: ./cash/cash.pt:24
-#: ./cash_in_advance/cash_in_advance.pt:24
-#: ./cash_on_delivery/cash_on_delivery.pt:24
+#. Default: "Your Order number: ${number}"
+#: ./cash/cash.pt:25
+#: ./cash_in_advance/cash_in_advance.pt:25
+#: ./cash_on_delivery/cash_on_delivery.pt:25
+#, fuzzy
 msgid "your_order_order_id"
 msgstr "Ihre Bestellnummer: ${number}"
-

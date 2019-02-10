@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: bda.plone.payment\n"
-"POT-Creation-Date: 2014-12-16 20:37+0000\n"
+"POT-Creation-Date: 2019-02-10 13:45+0000\n"
 "PO-Revision-Date: 2013-06-12 14:37+0100\n"
 "Last-Translator: Peter Holzer <peter.holzer@agitator.com>\n"
 "Language-Team: \n"
@@ -15,13 +15,17 @@ msgstr ""
 "Domain: bda.plone.payment\n"
 "X-Is-Fallback-For: it-ch it-it\n"
 
+#: ./profiles.zcml:13
+msgid "bda.plone.payment"
+msgstr ""
+
 #. Default: "Cash"
-#: ./cash/__init__.py:15
+#: ./cash/__init__.py:16
 msgid "cash"
 msgstr ""
 
 #. Default: "Cash in advance"
-#: ./cash_in_advance/__init__.py:15
+#: ./cash_in_advance/__init__.py:16
 msgid "cash_in_advance"
 msgstr ""
 
@@ -31,7 +35,7 @@ msgid "cash_in_advance_text"
 msgstr "Grazie per l'ordine effettuato. Riceverai la relativa fattura per posta elettronica. Non appena l'importo sarà accreditato sul nostro conto corrente, spediremo il tuo ordine."
 
 #. Default: "Cash on delivery. An extra fee of ${costs} ${currency} will be charged on order delivery"
-#: ./cash_on_delivery/__init__.py:28
+#: ./cash_on_delivery/__init__.py:29
 msgid "cash_on_delivery"
 msgstr ""
 
@@ -46,7 +50,7 @@ msgid "cash_text"
 msgstr ""
 
 #. Default: "Debit Order"
-#: ./debit_order/__init__.py:13
+#: ./debit_order/__init__.py:14
 msgid "debit_order"
 msgstr ""
 
@@ -56,7 +60,7 @@ msgid "debit_order_text"
 msgstr ""
 
 #. Default: "Invoice"
-#: ./invoice/__init__.py:13
+#: ./invoice/__init__.py:15
 msgid "invoice"
 msgstr "fattura"
 
@@ -71,13 +75,6 @@ msgstr "Grazie per l'ordine effettuato. Riceverai la relativa fattura per posta 
 #: ./cash_on_delivery/cash_on_delivery.pt:20
 msgid "order_received"
 msgstr "Ordine ricevuto"
-
-#. Default: "<span>x</span>: ${number}"
-#: ./cash/cash.pt:25
-#: ./cash_in_advance/cash_in_advance.pt:25
-#: ./cash_on_delivery/cash_on_delivery.pt:25
-msgid "order_show_id"
-msgstr ""
 
 #. Default: "Payment Aborted"
 #: ./six_payment/aborted.pt:22
@@ -107,7 +104,7 @@ msgid "payment_success"
 msgstr "Pagamento riuscito"
 
 #. Default: "Six Payment"
-#: ./six_payment/__init__.py:29
+#: ./six_payment/__init__.py:31
 msgid "six_payment"
 msgstr "Six Payment"
 
@@ -136,10 +133,10 @@ msgstr "Si stanno verificando dei problemi.  La validazione del pagamento non è
 msgid "us"
 msgstr "us"
 
-#. Default: "Your Order number"
-#: ./cash/cash.pt:24
-#: ./cash_in_advance/cash_in_advance.pt:24
-#: ./cash_on_delivery/cash_on_delivery.pt:24
+#. Default: "Your Order number: ${number}"
+#: ./cash/cash.pt:25
+#: ./cash_in_advance/cash_in_advance.pt:25
+#: ./cash_on_delivery/cash_on_delivery.pt:25
+#, fuzzy
 msgid "your_order_order_id"
 msgstr "Il tuo numero d'ordine"
-
