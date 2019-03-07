@@ -4,8 +4,8 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-version = '1.0a1.dev0'
-shortdesc = "Payment"
+version = '2.0.dev0'
+shortdesc = 'Payment'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'CHANGES.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
@@ -17,17 +17,18 @@ setup(
     description=shortdesc,
     long_description=longdesc,
     classifiers=[
-        'Environment :: Web Environment',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Operating System :: OS Independent',
+        'Framework :: Plone',
+        'Framework :: Plone :: 5.1',
+        'Framework :: Plone :: 5.2',
         'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
     ],
     author='BlueDynamics Alliance',
     author_email='dev@bluedynamics.com',
     license='GNU General Public Licence',
     packages=find_packages('src'),
-    package_dir = {'': 'src'},
+    package_dir={'': 'src'},
     namespace_packages=['bda', 'bda.plone'],
     include_package_data=True,
     zip_safe=False,
@@ -44,4 +45,4 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     """,
-    )
+)

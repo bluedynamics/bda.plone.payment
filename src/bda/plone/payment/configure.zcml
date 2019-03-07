@@ -15,26 +15,17 @@
   <include package=".invoice" />
   <include package=".six_payment" />
 
-  <!-- plone 4 resources -->
+  <!-- resources -->
   <browser:resource
-    zcml:condition="not-have plone-5"
-    name="bda.plone.payment.css"
-    file="resources/payment_p4.css" />
-
-  <!-- plone 5 resources -->
-  <browser:resource
-    zcml:condition="have plone-5"
     name="bda.plone.payment.less"
-    file="resources/payment_p5.less" />
+    file="resources/payment.less" />
 
   <browser:resource
-    zcml:condition="have plone-5"
     name="bda.plone.payment.css"
-    file="resources/payment_p5.css" />
+    file="resources/payment.css" />
 
   <browser:resource
-    zcml:condition="have plone-5"
     name="bda.plone.payment.css.map"
-    file="resources/payment_p5.css.map" />
+    file="resources/payment.css.map" />
 
 </configure>

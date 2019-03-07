@@ -7,11 +7,9 @@ from lxml import etree
 from Products.Five import BrowserView
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
-
 import logging
-import urllib
-import urllib2
-import urlparse
+import six.moves.urllib.parse
+import six.moves.urllib.request
 
 
 logger = logging.getLogger('bda.plone.payment')
@@ -41,9 +39,9 @@ class SaferPayError(Exception):
 
 def perform_request(url, params=None):
     if params:
-        query = urllib.urlencode(params)
+        query = six.moves.urllib.parse.urlencode(params)
         url = '%s?%s' % (url, query)
-    stream = urllib2.urlopen(url)
+    stream = six.moves.urllib.request.urlopen(url)
     res = stream.read()
     stream.close()
     return res
@@ -75,7 +73,7 @@ def verify_pay_confirm(data, signature):
     res = perform_request(VERIFY_PAY_CONFIRM_URL, params)
     if res[:2] != 'OK':
         raise SaferPayError(u"Payment Verification Failed: '%s'" % res[7:])
-    return urlparse.parse_qs(res[3:])
+    return six.moves.urllib.parse.parse_qs(res[3:])
 
 
 def pay_complete(accountid, password, id):
@@ -112,7 +110,7 @@ class SaferPay(BrowserView):
             redirect_url = create_pay_init(accountid, password, vtconfig, amount,
                                            currency, description, ordernumber,
                                            successlink, faillink, backlink)
-        except Exception, e:
+        except Exception as e:
             logger.error(u"Could not initialize payment: '%s'" % str(e))
             redirect_url = '%s/@@six_payment_failed?uid=%s' \
                 % (base_url, order_uid)
@@ -136,7 +134,7 @@ class SaferPaySuccess(BrowserView):
             success = False
             try:
                 success = pay_complete(accountid, password, tid)
-            except Exception, e:
+            except Exception as e:
                 logger.error(u"Payment completion failed: '%s'" % str(e))
             data = etree.fromstring(data)
             ordernumber = data.get('ORDERID')
@@ -149,7 +147,7 @@ class SaferPaySuccess(BrowserView):
             else:
                 payment.failed(self.request, order_uid, evt_data)
                 return False
-        except Exception, e:
+        except Exception as e:
             logger.error(u"Payment verification failed: '%s'" % str(e))
             return False
 
