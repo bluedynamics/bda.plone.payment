@@ -7,11 +7,9 @@ from lxml import etree
 from Products.Five import BrowserView
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
-
 import logging
-import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
-import six.moves.urllib.request, six.moves.urllib.error, six.moves.urllib.parse
 import six.moves.urllib.parse
+import six.moves.urllib.request
 
 
 logger = logging.getLogger('bda.plone.payment')
