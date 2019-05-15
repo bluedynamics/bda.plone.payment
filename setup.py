@@ -35,7 +35,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
-        'Plone',
+        'Products.CMFPlone',
     ],
     extras_require={
         'test': [
