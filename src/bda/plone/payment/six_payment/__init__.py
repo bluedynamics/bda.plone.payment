@@ -2,11 +2,13 @@
 from .. import Payment
 from .. import Payments
 from ..interfaces import IPaymentData
-from bda.plone.shop.utils import get_shop_settings
+from bda.plone.shop.interfaces import IShopSettings
 from lxml import etree
+from plone import api
 from Products.Five import BrowserView
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
+
 import logging
 import six.moves.urllib.parse
 import six.moves.urllib.request
@@ -118,7 +120,8 @@ class SaferPay(BrowserView):
 
 
 def shopmaster_mail(context):
-    return get_shop_settings().admin_email
+    shopsettings = api.portal.get_registry_record(interface=IShopSettings)
+    return shopsettings.admin_email
 
 
 class SaferPaySuccess(BrowserView):
