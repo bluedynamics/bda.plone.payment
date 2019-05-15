@@ -2,7 +2,6 @@
 from .. import Payment
 from .. import Payments
 from ..interfaces import IPaymentData
-from bda.plone.shop.interfaces import IShopSettings
 from lxml import etree
 from plone import api
 from Products.Five import BrowserView
@@ -120,8 +119,13 @@ class SaferPay(BrowserView):
 
 
 def shopmaster_mail(context):
-    shopsettings = api.portal.get_registry_record(interface=IShopSettings)
-    return shopsettings.admin_email
+    # XXX this is a soft dependency indirection on bda.plone.shop
+    name = "bda.plone.shop.interfaces.IShopSettings.admin_email"
+    shopsettings = api.portal.get_registry_record(name=name, default=None)
+    if shopsettings is not None:
+        return shopsettings.admin_email
+    logger.warning("No shop master email was set.")
+    return '(no shopmaster email set)'
 
 
 class SaferPaySuccess(BrowserView):
@@ -137,8 +141,8 @@ class SaferPaySuccess(BrowserView):
             success = False
             try:
                 success = pay_complete(accountid, password, tid)
-            except Exception as e:
-                logger.error(u"Payment completion failed: '%s'" % str(e))
+            except Exception:
+                logger.exception("Payment completion failed.")
             data = etree.fromstring(data)
             ordernumber = data.get('ORDERID')
             order_uid = IPaymentData(self.context).uid_for(ordernumber)
@@ -147,12 +151,10 @@ class SaferPaySuccess(BrowserView):
             if success:
                 payment.succeed(self.request, order_uid, evt_data)
                 return True
-            else:
-                payment.failed(self.request, order_uid, evt_data)
-                return False
-        except Exception as e:
-            logger.error(u"Payment verification failed: '%s'" % str(e))
-            return False
+            payment.failed(self.request, order_uid, evt_data)
+        except Exception:
+            logger.exception("Payment verification failed.")
+        return False
 
     @property
     def shopmaster_mail(self):

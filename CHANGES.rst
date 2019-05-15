@@ -5,6 +5,9 @@ Changelog
 2.0.dev0 (unreleased)
 ---------------------
 
+- Turn hard depenency indirection on bda.plone.shop into soft dependency with failover.
+  [jensens]
+
 - Avoid circular import (testing only).
   [jensens]
 
