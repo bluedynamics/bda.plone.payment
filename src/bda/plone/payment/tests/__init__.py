@@ -20,11 +20,11 @@ class PaymentLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         import bda.plone.payment
-        self.loadZCML(package=bda.plone.payment,
-                      context=configurationContext)
+
+        self.loadZCML(package=bda.plone.payment, context=configurationContext)
 
     def setUpPloneSite(self, portal):
-        self.applyProfile(portal, 'bda.plone.payment:default')
+        self.applyProfile(portal, "bda.plone.payment:default")
 
     def tearDownZope(self, app):
         pass
@@ -32,5 +32,5 @@ class PaymentLayer(PloneSandboxLayer):
 
 Payment_FIXTURE = PaymentLayer()
 Payment_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(Payment_FIXTURE,),
-    name="Payment:Integration")
+    bases=(Payment_FIXTURE,), name="Payment:Integration"
+)

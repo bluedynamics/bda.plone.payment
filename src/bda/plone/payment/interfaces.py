@@ -11,6 +11,7 @@ class IPaymentExtensionLayer(Interface):
 class IPaymentEvent(Interface):
     """Payment related event.
     """
+
     context = Attribute(u"Context in which this event was triggered.")
 
     request = Attribute(u"Current request.")
@@ -35,6 +36,7 @@ class IPaymentFailedEvent(IPaymentEvent):
 class IPaymentSettings(Interface):
     """Payment availability and default settings.
     """
+
     available = Attribute(u"List of available payment method ids")
 
     default = Attribute(u"Default payment method")
@@ -43,13 +45,16 @@ class IPaymentSettings(Interface):
 class IPayment(Interface):
     """Single payment.
     """
-    pid = Attribute(u"Unique payment id. Payment adapter is also registered "
-                    u"under this name.")
+
+    pid = Attribute(
+        u"Unique payment id. Payment adapter is also registered " u"under this name."
+    )
 
     label = Attribute(u"Payment label")
 
-    available = Attribute(u"Flag whether payment is available in recent "
-                          u"payment cycle")
+    available = Attribute(
+        u"Flag whether payment is available in recent " u"payment cycle"
+    )
 
     default = Attribute(u"Flag whether this payment is default payment.")
 

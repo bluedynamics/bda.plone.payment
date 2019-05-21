@@ -8,34 +8,31 @@ from Products.Five import BrowserView
 from zope.i18nmessageid import MessageFactory
 
 
-_ = MessageFactory('bda.plone.payment')
+_ = MessageFactory("bda.plone.payment")
 
 
 class CashInAdvance(Payment):
-    pid = 'cash_in_advance'
-    label = _('cash_in_advance', default=u'Cash in advance')
+    pid = "cash_in_advance"
+    label = _("cash_in_advance", default=u"Cash in advance")
 
     def init_url(self, uid):
-        return '%s/@@cash_in_advance?uid=%s' % (self.context.absolute_url(), uid)
+        return "%s/@@cash_in_advance?uid=%s" % (self.context.absolute_url(), uid)
 
 
 class DoCashInAdvance(BrowserView):
-
     def __call__(self, **kw):
-        uid = self.request['uid']
-        payment = Payments(self.context).get('cash')
+        uid = self.request["uid"]
+        payment = Payments(self.context).get("cash")
         payment.succeed(self.request, uid)
-        url = '%s/@@cash_in_advance_done?uid=%s' % (
-            self.context.absolute_url(), uid)
+        url = "%s/@@cash_in_advance_done?uid=%s" % (self.context.absolute_url(), uid)
         self.request.response.redirect(url)
 
 
 class CashInAdvanceFinished(BrowserView):
-
     def id(self):
-        uid = self.request.get('uid', None)
+        uid = self.request.get("uid", None)
         try:
             order = get_order(self.context, uid)
         except ValueError:
             return None
-        return order.attrs.get('ordernumber')
+        return order.attrs.get("ordernumber")

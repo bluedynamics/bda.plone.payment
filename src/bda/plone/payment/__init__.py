@@ -14,7 +14,6 @@ from zope.interface import Interface
 
 @implementer(IPaymentEvent)
 class PaymentEvent(object):
-
     def __init__(self, context, request, payment, order_uid, data):
         self.context = context
         self.request = request
@@ -34,7 +33,6 @@ class PaymentFailedEvent(PaymentEvent):
 
 
 class Payments(object):
-
     def __init__(self, context):
         self.context = context
 
@@ -90,5 +88,6 @@ class Payment(object):
         notify(evt)
 
     def init_url(self, uid):
-        raise NotImplementedError(u"Abstract ``Payment`` does not implement "
-                                  u"``init_url``")
+        raise NotImplementedError(
+            u"Abstract ``Payment`` does not implement " u"``init_url``"
+        )

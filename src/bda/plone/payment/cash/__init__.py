@@ -8,33 +8,31 @@ from Products.Five import BrowserView
 from zope.i18nmessageid import MessageFactory
 
 
-_ = MessageFactory('bda.plone.payment')
+_ = MessageFactory("bda.plone.payment")
 
 
 class Cash(Payment):
-    pid = 'cash'
-    label = _('cash', default=u'Cash')
+    pid = "cash"
+    label = _("cash", default=u"Cash")
 
     def init_url(self, uid):
-        return '%s/@@cash?uid=%s' % (self.context.absolute_url(), uid)
+        return "%s/@@cash?uid=%s" % (self.context.absolute_url(), uid)
 
 
 class DoCash(BrowserView):
-
     def __call__(self, **kw):
-        uid = self.request['uid']
-        payment = Payments(self.context).get('cash')
+        uid = self.request["uid"]
+        payment = Payments(self.context).get("cash")
         payment.succeed(self.request, uid)
-        url = '%s/@@cashed?uid=%s' % (self.context.absolute_url(), uid)
+        url = "%s/@@cashed?uid=%s" % (self.context.absolute_url(), uid)
         self.request.response.redirect(url)
 
 
 class CashFinished(BrowserView):
-
     def id(self):
-        uid = self.request.get('uid', None)
+        uid = self.request.get("uid", None)
         try:
             order = get_order(self.context, uid)
         except ValueError:
             return None
-        return order.attrs.get('ordernumber')
+        return order.attrs.get("ordernumber")

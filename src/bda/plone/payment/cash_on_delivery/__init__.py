@@ -10,7 +10,7 @@ from zope.interface import Attribute
 from zope.interface import Interface
 
 
-_ = MessageFactory('bda.plone.payment')
+_ = MessageFactory("bda.plone.payment")
 
 
 class ICashOnDeliverySettings(Interface):
@@ -21,40 +21,36 @@ class ICashOnDeliverySettings(Interface):
 
 
 class CashOnDelivery(Payment):
-    pid = 'cash_on_delivery'
+    pid = "cash_on_delivery"
 
     @property
     def label(self):
         settings = ICashOnDeliverySettings(self.context)
-        return _('cash_on_delivery',
-                 default=u'Cash on delivery. An extra fee of ${costs} '
-                         u'${currency} will be charged on order delivery',
-                 mapping={
-                     'costs': settings.costs,
-                     'currency': settings.currency
-                 })
+        return _(
+            "cash_on_delivery",
+            default=u"Cash on delivery. An extra fee of ${costs} "
+            u"${currency} will be charged on order delivery",
+            mapping={"costs": settings.costs, "currency": settings.currency},
+        )
 
     def init_url(self, uid):
-        return '%s/@@cash_on_delivery?uid=%s' % (self.context.absolute_url(), uid)
+        return "%s/@@cash_on_delivery?uid=%s" % (self.context.absolute_url(), uid)
 
 
 class DoCashOnDelivery(BrowserView):
-
     def __call__(self, **kw):
-        uid = self.request['uid']
-        payment = Payments(self.context).get('cash')
+        uid = self.request["uid"]
+        payment = Payments(self.context).get("cash")
         payment.succeed(self.request, uid)
-        url = '%s/@@cash_on_delivery_done?uid=%s' % (
-            self.context.absolute_url(), uid)
+        url = "%s/@@cash_on_delivery_done?uid=%s" % (self.context.absolute_url(), uid)
         self.request.response.redirect(url)
 
 
 class CashOnDeliveryFinished(BrowserView):
-
     def id(self):
-        uid = self.request.get('uid', None)
+        uid = self.request.get("uid", None)
         try:
             order = get_order(self.context, uid)
         except ValueError:
             return None
-        return order.attrs.get('ordernumber')
+        return order.attrs.get("ordernumber")
