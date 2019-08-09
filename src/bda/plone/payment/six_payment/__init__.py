@@ -7,20 +7,35 @@ from plone import api
 from Products.Five import BrowserView
 from zExceptions import Redirect
 from zope.i18nmessageid import MessageFactory
-
+import base64
+import json
 import logging
+import requests
 import six.moves.urllib.parse
 import six.moves.urllib.request
+import uuid
 
 
 logger = logging.getLogger("bda.plone.payment")
 _ = MessageFactory("bda.plone.payment")
 
 
-ACCOUNTID = "99867-94913159"
-PASSWORD = "XAjc3Kna"
-VTCONFIG = ""
-CREATE_PAY_INIT_URL = "https://www.saferpay.com/hosting/CreatePayInit.asp"
+###############################################################################
+# Account settings
+USERNAME = ''
+PASSWORD = ''
+CUSTOMER_ID = ''
+TERMINAL_ID = ''
+DCC = False
+# End account settings
+###############################################################################
+
+SPEC_VERSION = '1.10'
+
+# BASE_URL = 'https://www.saferpay.com/api'
+BASE_URL = 'https://test.saferpay.com/api'
+PAYMENT_PAGE_INITIALIZE_URL = "{}/Payment/v1/PaymentPage/Initialize".format(BASE_URL)
+
 VERIFY_PAY_CONFIRM_URL = "https://www.saferpay.com/hosting/VerifyPayConfirm.asp"
 PAY_COMPLETE_URL = "https://www.saferpay.com/hosting/PayCompleteV2.asp"
 
@@ -38,6 +53,60 @@ class SaferPayError(Exception):
     """
 
 
+def payment_page_initialize(
+    username,
+    password,
+    customer_id,
+    request_id,
+    retry_indicator,
+    terminal_id,
+    amount,
+    currency,
+    order_id,
+    payment_description,
+    success_link,
+    fail_link
+):
+    if not isinstance(username, bytes):
+        username = username.encode('utf-8')
+    if not isinstance(password, bytes):
+        password = password.encode('utf-8')
+    credentials = username + b':' + password
+    encoded_credentials = base64.b64encode(credentials)
+    headers = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Accept': 'application/json',
+        'Authorization': 'Basic {}'.format(encoded_credentials)
+    }
+    data = {
+        'RequestHeader': {
+            'SpecVersion': SPEC_VERSION,
+            'CustomerId': customer_id,
+            'RequestId': request_id,
+            'RetryIndicator': retry_indicator
+        },
+        'TerminalId': terminal_id,
+        'Payment': {
+            'Amount': {
+                'Value': amount,
+                'CurrencyCode': currency
+            },
+            'OrderId': order_id,
+            'Description': payment_description
+        },
+        'ReturnUrls': {
+            'Success': success_link,
+            'Fail': fail_link
+        }
+    }
+    res = requests.post(
+        PAYMENT_PAGE_INITIALIZE_URL,
+        headers=headers,
+        data=json.dumps(data)
+    )
+    return res.json()
+
+
 def perform_request(url, params=None):
     if params:
         query = six.moves.urllib.parse.urlencode(params)
@@ -46,34 +115,6 @@ def perform_request(url, params=None):
     res = stream.read()
     stream.close()
     return res
-
-
-def create_pay_init(
-    accountid,
-    password,
-    vtconfig,
-    amount,
-    currency,
-    description,
-    ordernumber,
-    successlink,
-    faillink,
-    backlink,
-):
-    params = {
-        "ACCOUNTID": accountid,
-        "spPassword": password,
-        "VTCONFIG": vtconfig,
-        "AMOUNT": amount,
-        "CURRENCY": currency,
-        "DESCRIPTION": description,
-        "ORDERID": ordernumber,
-        "SUCCESSLINK": successlink,
-        "FAILLINK": faillink,
-        "BACKLINK": backlink,
-        "SHOWLANGUAGES": "yes",
-    }
-    return perform_request(CREATE_PAY_INIT_URL, params)
 
 
 def verify_pay_confirm(data, signature):
@@ -98,28 +139,38 @@ class SaferPay(BrowserView):
         order_uid = self.request["uid"]
         try:
             data = IPaymentData(self.context).data(order_uid)
-            accountid = ACCOUNTID
-            password = PASSWORD
-            vtconfig = VTCONFIG
-            amount = data["amount"]
-            currency = data["currency"]
-            description = data["description"]
-            ordernumber = data["ordernumber"]
-            successlink = "%s/@@six_payment_success" % base_url
-            faillink = "%s/@@six_payment_failed?uid=%s" % (base_url, order_uid)
-            backlink = "%s/@@six_payment_aborted?uid=%s" % (base_url, order_uid)
-            redirect_url = create_pay_init(
-                accountid,
-                password,
-                vtconfig,
-                amount,
-                currency,
-                description,
-                ordernumber,
-                successlink,
-                faillink,
-                backlink,
+            request_id = str(uuid.uuid4())
+            retry_indicator = 0
+            response = payment_page_initialize(
+                USERNAME,
+                PASSWORD,
+                CUSTOMER_ID,
+                request_id,
+                retry_indicator,
+                TERMINAL_ID,
+                data["amount"],
+                data["currency"],
+                data["ordernumber"],
+                data["description"],
+                '{}/@@six_payment_success'.format(base_url),
+                '{}/@@six_payment_failed?uid={}'.format(base_url, order_uid)
             )
+            header = response['ResponseHeader']
+            if header['RequestId'] != request_id:
+                msg = u'Unknown response: {} != {}'.format(
+                    header['RequestId'],
+                    request_id
+                )
+                raise SaferPayError(msg)
+            if 'ErrorName' in response:
+                msg = u'Error in response: {} {}'.format(
+                    response['ErrorName'],
+                    response['ErrorMessage']
+                )
+                raise SaferPayError(msg)
+            # XXX: store token on order?
+            # token = response['Token']
+            redirect_url = response['RedirectUrl']
         except Exception as e:
             logger.error(u"Could not initialize payment: '%s'" % str(e))
             redirect_url = "%s/@@six_payment_failed?uid=%s" % (base_url, order_uid)
