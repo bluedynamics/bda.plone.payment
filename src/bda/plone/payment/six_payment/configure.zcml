@@ -5,28 +5,27 @@
 
   <browser:page
     for="*"
-    name="six_payment"
-    class=".SaferPay"
+    name="saferpay_initialize"
+    class=".SaferPayInitialize"
     permission="zope2.View" />
 
   <browser:page
     for="*"
-    name="six_payment_success"
+    name="saferpay_assert"
+    class=".SaferPayAssert"
+    permission="zope2.View" />
+
+  <browser:page
+    for="*"
+    name="saferpay_success"
     template="success.pt"
     class=".SaferPaySuccess"
     permission="zope2.View" />
 
   <browser:page
     for="*"
-    name="six_payment_failed"
+    name="saferpay_failed"
     template="failed.pt"
-    class=".SaferPayFailed"
-    permission="zope2.View" />
-
-  <browser:page
-    for="*"
-    name="six_payment_aborted"
-    template="aborted.pt"
     class=".SaferPayFailed"
     permission="zope2.View" />
 

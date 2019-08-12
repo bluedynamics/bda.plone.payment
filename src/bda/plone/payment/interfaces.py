@@ -79,6 +79,10 @@ class IPaymentData(Interface):
         """Return order_uid for ordernumber.
         """
 
+    def annotations(ordernumber):
+        """Dict like object for annotating payment related data.
+        """
+
     def data(order_uid):
         """Return dict containing payment related order data like:
 
