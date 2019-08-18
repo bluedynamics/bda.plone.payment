@@ -5,6 +5,9 @@ Changelog
 2.0.dev0 (unreleased)
 ---------------------
 
+- Migrate SIX Saferpay to JSON API.
+  [rnix]
+
 - Code style black.
   [jensens]
 
