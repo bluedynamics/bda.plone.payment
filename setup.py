@@ -34,7 +34,7 @@ setup(
     namespace_packages=["bda", "bda.plone"],
     include_package_data=True,
     zip_safe=False,
-    install_requires=["setuptools", "Products.CMFPlone"],
+    install_requires=["setuptools", "Products.CMFPlone", "requests"],
     extras_require={"test": ["plone.app.testing"]},
     entry_points="""
     [z3c.autoinclude.plugin]
