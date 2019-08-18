@@ -16,6 +16,7 @@ import base64
 import json
 import logging
 import requests
+import transaction
 import uuid
 
 
@@ -191,28 +192,7 @@ class SaferPay(object):
         return self.request(self.cancel_url, data)
 
 
-class SixPayment(Payment):
-    pid = "six_payment"
-    label = _("six_payment", "Six Payment")
-
-    def init_url(self, uid):
-        return "{}/@@saferpay_initialize?uid={}".format(
-            self.context.absolute_url(),
-            uid
-        )
-
-
-class SaferPayBaseView(BrowserView):
-
-    @property
-    def shopmaster_mail(context):
-        # This is a soft dependency indirection on bda.plone.shop
-        name = "bda.plone.shop.interfaces.IShopSettings.admin_email"
-        shopsettings = api.portal.get_registry_record(name=name, default=None)
-        if shopsettings is not None:
-            return shopsettings.admin_email
-        logger.warning("No shop master email was set.")
-        return "(no shopmaster email set)"
+class URLMixin(object):
 
     def payment_link(self, base_url, view_name, order_uid):
         try:
@@ -226,6 +206,31 @@ class SaferPayBaseView(BrowserView):
             order_uid,
             authenticator
         )
+
+
+class SixPayment(Payment, URLMixin):
+    pid = "six_payment"
+    label = _("six_payment", "Six Payment")
+
+    def init_url(self, uid):
+        return self.payment_link(
+            self.context.absolute_url(),
+            'saferpay_initialize',
+            uid
+        )
+
+
+class SaferPayBaseView(BrowserView, URLMixin):
+
+    @property
+    def shopmaster_mail(self):
+        # This is a soft dependency indirection on bda.plone.shop
+        name = "bda.plone.shop.interfaces.IShopSettings.admin_email"
+        email = api.portal.get_registry_record(name=name, default=None)
+        if email is not None:
+            return email
+        logger.warning("No shop master email was set.")
+        return "(no shopmaster email set)"
 
 
 class SaferPayInitialize(SaferPayBaseView):
@@ -251,6 +256,7 @@ class SaferPayInitialize(SaferPayBaseView):
             annotations = p_data.annotations(ordernumber)
             annotations['saferpay_token'] = response['Token']
             redirect_url = response['RedirectUrl']
+            transaction.commit()
         except Exception as e:
             logger.error("Cannot initialize payment: '{}'".format(e))
             redirect_url = fail_link
@@ -261,7 +267,7 @@ class SaferPayAssert(SaferPayBaseView):
 
     def __call__(self):
         base_url = self.context.absolute_url()
-        order_uid = self.request["uid"]
+        order_uid = self.request['uid']
         success_link = self.payment_link(base_url, 'saferpay_success', order_uid)
         fail_link = self.payment_link(base_url, 'saferpay_failed', order_uid)
         try:
@@ -272,18 +278,18 @@ class SaferPayAssert(SaferPayBaseView):
             token = annotations['saferpay_token']
             sp = SaferPay()
             response = sp.assert_(token)
-            transaction = response['Transaction']
-            status = transaction['Status']
-            tid = transaction['Id']
+            ta = response['Transaction']
+            status = ta['Status']
+            tid = ta['Id']
             annotations['saferpay_transaction_id'] = tid
-            ordernumber = response['OrderId']
+            ordernumber = ta['OrderId']
             if status == 'PENDING':
                 # Currently only paydirect
                 msg = 'Paydirect not supported yet'
                 raise NotImplementedError(msg)
             elif status == 'AUTHORIZED':
                 captured_response = sp.capture(tid)
-                c_status = captured_response['Staus']
+                c_status = captured_response['Status']
                 if c_status == 'PENDING':
                     # Currently only paydirect
                     msg = 'Paydirect not supported yet'
@@ -295,12 +301,13 @@ class SaferPayAssert(SaferPayBaseView):
                     msg = 'Unknown capture status: {}'.format(c_status)
                     raise SaferPayError(msg)
             elif status == 'CAPTURED':
-                capture_id = transaction['CaptureId']
+                capture_id = ta['CaptureId']
                 annotations['saferpay_capture_id'] = capture_id
             else:
                 msg = 'Unknown transaction status: {}'.format(status)
                 raise SaferPayError(msg)
             redirect_url = success_link
+            transaction.commit()
         except Exception as e:
             logger.error("Cannot finalize payment: '{}'".format(e))
             redirect_url = fail_link
