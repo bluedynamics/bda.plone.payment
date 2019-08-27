@@ -65,14 +65,16 @@ class Payment(object):
     pid = None
     label = None
     deferred = False
+    available = False
 
     def __init__(self, context):
         self.context = context
 
-    @property
-    def available(self):
-        settings = IPaymentSettings(self.context)
-        return self.pid in settings.available
+    # disable for 0.3
+    # @property
+    # def available(self):
+    #     settings = IPaymentSettings(self.context)
+    #     return self.pid in settings.available
 
     @property
     def default(self):
