@@ -66,6 +66,7 @@ class Payment(object):
     label = None
     deferred = False
     available = False
+    default = ''
 
     def __init__(self, context):
         self.context = context
@@ -76,10 +77,11 @@ class Payment(object):
     #     settings = IPaymentSettings(self.context)
     #     return self.pid in settings.available
 
-    @property
-    def default(self):
-        settings = IPaymentSettings(self.context)
-        return self.pid == settings.default
+    # @property
+    # def default(self):
+    #     import pdb; pdb.set_trace()
+    #     settings = IPaymentSettings(self.context)
+    #     return self.pid == settings.default
 
     def succeed(self, request, order_uid, data=dict()):
         evt = PaymentSuccessEvent(self.context, request, self, order_uid, data)
