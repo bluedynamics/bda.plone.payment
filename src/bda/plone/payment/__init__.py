@@ -79,7 +79,6 @@ class Payment(object):
 
     # @property
     # def default(self):
-    #     import pdb; pdb.set_trace()
     #     settings = IPaymentSettings(self.context)
     #     return self.pid == settings.default
 
