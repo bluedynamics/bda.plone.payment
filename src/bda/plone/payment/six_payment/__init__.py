@@ -30,6 +30,7 @@ USERNAME = ''
 PASSWORD = ''
 CUSTOMER_ID = ''
 TERMINAL_ID = ''
+CONFIG_SET = ''
 TESTING = False
 # End account settings
 ###############################################################################
@@ -62,6 +63,10 @@ class SaferPay(object):
     @property
     def terminal_id(self):
         return TERMINAL_ID
+
+    @property
+    def config_set(self):
+        return CONFIG_SET
 
     @property
     def base_url(self):
@@ -167,6 +172,9 @@ class SaferPay(object):
                 'Fail': fail_link
             }
         }
+        config_set = self.config_set
+        if config_set:
+            data['ConfigSet'] = config_set
         return self.request(self.initialize_url, data)
 
     def assert_(self, token):
