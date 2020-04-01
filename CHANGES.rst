@@ -5,6 +5,9 @@ Changelog
 2.0.dev0 (unreleased)
 ---------------------
 
+- No longer support for z3c.autoinclude.
+  [jensens]
+
 - Migrate SIX Saferpay to JSON API.
   [rnix]
 
