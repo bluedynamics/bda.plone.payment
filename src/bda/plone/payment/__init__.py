@@ -64,7 +64,8 @@ class Payments(object):
 class Payment(object):
     pid = None
     label = None
-    deferred = False
+    # deferred = False  # XXX: remove
+    clear_session = True
 
     def __init__(self, context):
         self.context = context
