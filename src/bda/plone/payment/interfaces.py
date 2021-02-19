@@ -52,6 +52,12 @@ class IPayment(Interface):
 
     label = Attribute(u"Payment label")
 
+    clear_session = Attribute(
+        u"Clear cart immediately on checkout success. Defaults to True. "
+        u"May be set to False in redirect payments. If so, cart session "
+        u"clearance must be handled in payment success and failed event handlers."
+    )
+
     available = Attribute(
         u"Flag whether payment is available in recent " u"payment cycle"
     )

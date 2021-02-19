@@ -5,6 +5,9 @@ Changelog
 2.0.dev0 (unreleased)
 ---------------------
 
+- Introduce ``IPayment.clear_session`` flag.
+  [rnix]
+
 - No longer support for z3c.autoinclude.
   [jensens]
 
