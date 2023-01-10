@@ -4,6 +4,7 @@
 from bda.plone.orders.common import get_order
 from bda.plone.payment import Payment
 from bda.plone.payment import Payments
+from plone.protect.authenticator import createToken
 from Products.Five import BrowserView
 from zope.i18nmessageid import MessageFactory
 
@@ -16,7 +17,9 @@ class CashInAdvance(Payment):
     label = _("cash_in_advance", default=u"Cash in advance")
 
     def init_url(self, uid):
-        return "%s/@@cash_in_advance?uid=%s" % (self.context.absolute_url(), uid)
+        return "{url}/@@cash_in_advance?uid={uid}&_authenticator={token}".format(
+            url=self.context.absolute_url(), uid=uid, token=createToken()
+        )
 
 
 class DoCashInAdvance(BrowserView):
@@ -24,7 +27,9 @@ class DoCashInAdvance(BrowserView):
         uid = self.request["uid"]
         payment = Payments(self.context).get("cash")
         payment.succeed(self.request, uid)
-        url = "%s/@@cash_in_advance_done?uid=%s" % (self.context.absolute_url(), uid)
+        url = "{url}/@@cash_in_advance_done?uid={uid}&_authenticator={token}".format(
+            url=self.context.absolute_url(), uid=uid, token=createToken()
+        )
         self.request.response.redirect(url)
 
 
