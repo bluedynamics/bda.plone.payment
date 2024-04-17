@@ -12,8 +12,14 @@
     description="bda.plone.payment"
     provides="Products.GenericSetup.interfaces.EXTENSION" />
 
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="bda.plone.payment (uninstall profile)"
+    directory="profiles/uninstall"
+    description="bda.plone.payment"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
   <!-- Hide profiles/products from Quick Installer -->
   <utility factory=".setuphandlers.HiddenProfiles" name="bda.plone.payment" />
-  <utility factory=".setuphandlers.HiddenProducts" name="bda.plone.payment" />
 
 </configure>
