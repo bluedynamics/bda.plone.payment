@@ -2,7 +2,7 @@
 Changelog
 =========
 
-2.0b1 (unreleased)
+2.0b1 (2024-04-17)
 ------------------
 
 - Introduce ``IPayment.clear_session`` flag.
