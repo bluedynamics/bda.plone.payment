@@ -2,8 +2,11 @@
 Changelog
 =========
 
-2.0.dev0 (unreleased)
----------------------
+2.0b1 (unreleased)
+------------------
+
+- Introduce ``IPayment.clear_session`` flag.
+  [rnix]
 
 - Introduce ``IPayment.clear_session`` flag.
   [rnix]

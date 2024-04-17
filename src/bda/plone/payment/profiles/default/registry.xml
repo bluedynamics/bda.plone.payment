@@ -6,8 +6,7 @@
            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="enabled">True</value>
     <value key="compile">False</value>
-    <value key="csscompilation">++resource++bda.plone.payment.css</value>
-    <value key="merge_with">default</value>
+    <value key="csscompilation">++resource++bda.plone.payment/payment.min.css</value>
   </records>
 
 </registry>

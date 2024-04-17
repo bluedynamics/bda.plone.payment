@@ -7,6 +7,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <include file="profiles.zcml" />
+  <include file="upgrades.zcml" />
 
   <include package=".cash" />
   <include package=".cash_in_advance" />
@@ -16,16 +17,8 @@
   <include package=".six_payment" />
 
   <!-- resources -->
-  <browser:resource
-    name="bda.plone.payment.less"
-    file="resources/payment.less" />
-
-  <browser:resource
-    name="bda.plone.payment.css"
-    file="resources/payment.css" />
-
-  <browser:resource
-    name="bda.plone.payment.css.map"
-    file="resources/payment.css.map" />
+  <browser:resourceDirectory
+    name="bda.plone.payment"
+    directory="resources" />
 
 </configure>

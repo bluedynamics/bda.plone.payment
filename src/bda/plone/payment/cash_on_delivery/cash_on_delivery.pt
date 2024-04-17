@@ -17,8 +17,10 @@
 <metal:main fill-slot="main">
   <tal:main-macro metal:define-macro="main">
 
-    <h1 class="documentFirstHeading"
+    <header>
+      <h1 class="documentFirstHeading"
         i18n:translate="order_received">Order Received</h1>
+    </header>
 
     <p i18n:translate="your_order_order_id" tal:condition="view/id">
       Your Order number:

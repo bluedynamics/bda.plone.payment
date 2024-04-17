@@ -5,7 +5,7 @@ from setuptools import setup
 import os
 
 
-version = "2.0.dev0"
+version = "2.0b1.dev0"
 shortdesc = "Payment"
 longdesc = open(os.path.join(os.path.dirname(__file__), "README.rst")).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), "CHANGES.rst")).read()
@@ -19,12 +19,17 @@ setup(
     long_description=longdesc,
     classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone :: 6.0",
         "Framework :: Plone :: Addon",
-        "Framework :: Plone :: 5.1",
-        "Framework :: Plone :: 5.2",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Framework :: Zope",
+        "Framework :: Zope :: 5",
         "License :: OSI Approved :: GNU General Public License (GPL)",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     author="BlueDynamics Alliance",
     author_email="dev@bluedynamics.com",

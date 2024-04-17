@@ -19,8 +19,10 @@
 
     <tal:finalize define="finalized view/finalize" />
 
-    <h1 class="documentFirstHeading"
+    <header>
+      <h1 class="documentFirstHeading"
         i18n:translate="payment_aborted">Payment Aborted</h1>
+    </header>
 
     <p i18n:translate="six_payment_aborted_text">
       Payment has been aborted.
