@@ -1,26 +1,21 @@
-=================
 bda.plone.payment
 =================
 
-Payment processors for ``bda.plone.shop``.
-
-
-Installation
-============
+Shop payment processors.
 
 This package is part of the ``bda.plone.shop`` stack. Please refer to
-``https://github.com/bluedynamics/bda.plone.shop`` for installation
-instructions.
+`bda.plone.shop <https://github.com/bluedynamics/bda.plone.shop>`_ for
+installation instructions.
 
 
 Available Processors
-====================
+--------------------
 
 Following payment processors are available
 
 
 Cash
-----
+~~~~
 
 Useful when selling stuff which gets paid on-site.
 
@@ -31,7 +26,7 @@ in backend.
 
 
 Cash in advance
----------------
+~~~~~~~~~~~~~~~
 
 All Data is sent via email.
 
@@ -42,7 +37,7 @@ the payment.
 
 
 Cash on delivery
-----------------
+~~~~~~~~~~~~~~~~
 
 All Data is sent via email.
 
@@ -53,7 +48,7 @@ service providing cash on delivery.
 
 
 Debit Order
------------
+~~~~~~~~~~~
 
 Useful when customers are well known and permission to perform debit orders
 is granted.
@@ -64,7 +59,7 @@ Administrators take action and mark orders salaried.
 
 
 Invoice
--------
+~~~~~~~
 
 All Data is sent via email.
 
@@ -75,7 +70,7 @@ the payment.
 
 
 SIX-Payment
------------
+~~~~~~~~~~~
 
 Redirect payment using ``https://www.saferpay.com``.
 
@@ -87,7 +82,7 @@ Administrator needs to take action if payment failed.
 
 
 Addon Payment processors
-========================
+------------------------
 
 Following addon payment processors are known:
 
@@ -104,13 +99,13 @@ implementations than the listed one, please let us know.
 
 
 Providing a payment processor
-=============================
+-----------------------------
 
-XXX
+TBD
 
 
 Customize existing payment processors
-=====================================
+-------------------------------------
 
 To de-activate a payment processor unconfigure it using `z3c.unconfigure`_:
 
@@ -128,7 +123,7 @@ To de-activate a payment processor unconfigure it using `z3c.unconfigure`_:
 
 
 Create translations
-===================
+-------------------
 
 ::
     $ cd src/bda/plone/payment/
@@ -136,7 +131,7 @@ Create translations
 
 
 Contributors
-============
+------------
 
 - Robert Niederreiter (Author)
 - Harald Frießnegger
